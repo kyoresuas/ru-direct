@@ -1,0 +1,890 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-03T08:47:45.070Z",
+  "repository": "https://github.com/kyoresuas/ru-direct",
+  "tiers": {
+    "ru-lite": {
+      "id": "ru-lite",
+      "title": "Lite",
+      "description": "Банки, платежи, госуслуги и российские соцсети. Не более 500 подсетей, подходит любому клиенту",
+      "limit": 500,
+      "ipv4": 357,
+      "ipv6": 23,
+      "domains": 464,
+      "services": 29,
+      "categories": 4,
+      "diff": {
+        "added": 6,
+        "removed": 7,
+        "addedSample": [
+          "46.42.188.59/32",
+          "91.231.236.245/32",
+          "91.238.111.253/32",
+          "91.240.170.187/32",
+          "151.236.117.59/32",
+          "151.236.121.253/32"
+        ],
+        "removedSample": [
+          "81.222.127.186/32",
+          "91.240.169.237/32",
+          "151.236.65.237/32",
+          "151.236.83.86/32",
+          "151.236.102.205/32",
+          "151.236.122.221/32",
+          "185.31.114.57/32"
+        ]
+      },
+      "files": [
+        {
+          "name": "ru-lite.amnezia.json",
+          "format": "amnezia",
+          "group": "amnezia",
+          "size": 14138,
+          "sha256": "12083b83a331be4045c00d0cadcc9d4fc67da8ac28e279bf736fd42d3b6152c3"
+        },
+        {
+          "name": "ru-lite.amnezia-domains.json",
+          "format": "amneziaDomains",
+          "group": "amnezia",
+          "size": 55081,
+          "sha256": "5111f412cbcd99534749f9823f45e36e318c3b6848b2c0ef763a409e7755d181"
+        },
+        {
+          "name": "ru-lite.wireguard.txt",
+          "format": "wireguard",
+          "group": "wireguard",
+          "size": 7137,
+          "sha256": "8bc479e3d5a12b16eb11532526eb010d7dc4f6c599a7a1fc9c8b32608ac9322a"
+        },
+        {
+          "name": "ru-lite.wireguard-inverted.txt",
+          "format": "wireguardInverted",
+          "group": "wireguard",
+          "size": 62195,
+          "sha256": "56de7815ba4d418773570fbece311f678048c3df759c2f672c4790840dde5a14"
+        },
+        {
+          "name": "ru-lite.singbox.srs",
+          "format": "singboxSrs",
+          "group": "singbox",
+          "size": 5659,
+          "sha256": "b1aebda7720e7930b37275cefbca233d3ab2c537552a391a7dc598896160f3b5"
+        },
+        {
+          "name": "ru-lite.singbox.json",
+          "format": "singboxJson",
+          "group": "singbox",
+          "size": 23039,
+          "sha256": "8c70e65209f370a93b211f03f8a215f33010b671bac71b6d19b11888daffd96d"
+        },
+        {
+          "name": "ru-lite.v2rayn.json",
+          "format": "v2rayn",
+          "group": "xray",
+          "size": 24616,
+          "sha256": "32a22cc8dd07d15a3678a34f19d3a1513b181cebce5f20cb76f179b1d5146635"
+        },
+        {
+          "name": "ru-lite.happ.json",
+          "format": "happ",
+          "group": "xray",
+          "size": 20093,
+          "sha256": "37b03e51a7c24f48afbd46aa14f2506e859dafb8904dd4c78618980bd90ab2d5"
+        },
+        {
+          "name": "ru-lite.mihomo.mrs",
+          "format": "mihomoMrs",
+          "group": "clash",
+          "size": 2139,
+          "sha256": "9e559245d029a1306d2db74d757e543b0c5535dd3cfd66bda7f4c8617c17261c"
+        },
+        {
+          "name": "ru-lite.mihomo.yaml",
+          "format": "mihomoYaml",
+          "group": "clash",
+          "size": 8801,
+          "sha256": "5b7b0ac2fbbdbdb0b59dff1f07098acc3d77965eccda006981566d1581d6ba07"
+        },
+        {
+          "name": "ru-lite.clash.yaml",
+          "format": "clashClassical",
+          "group": "clash",
+          "size": 30957,
+          "sha256": "9c34c7bc0ea15526ba778a1da078eeef3197dc67fb11f2e7ff9dedfdf44a818d"
+        },
+        {
+          "name": "ru-lite.surge.list",
+          "format": "surge",
+          "group": "surge",
+          "size": 27550,
+          "sha256": "cb0c61578851b2078f5173bb7d065d439c5fd94c5115181c4ad87d12b060de16"
+        },
+        {
+          "name": "ru-lite.quantumultx.list",
+          "format": "quantumultx",
+          "group": "quantumultx",
+          "size": 30038,
+          "sha256": "fdcdd2db245a6e7febeecac5182ae5e13824e2fa61d19c3a4e239fc3695baafb"
+        },
+        {
+          "name": "ru-lite.mikrotik.rsc",
+          "format": "mikrotik",
+          "group": "mikrotik",
+          "size": 15137,
+          "sha256": "c3678d4f8d35a78495824b4c94f94f81054a52c1fbf29457b2d1bac191e6d0b7"
+        },
+        {
+          "name": "ru-lite.mikrotik-ipv6.rsc",
+          "format": "mikrotikIpv6",
+          "group": "mikrotik",
+          "size": 1259,
+          "sha256": "61c7c7f09a0b30bb11eb05bf5fcc40e1401372e585139dc14441ce5e818e9703"
+        },
+        {
+          "name": "ru-lite.keenetic.bat",
+          "format": "keeneticBat",
+          "group": "keenetic",
+          "size": 18723,
+          "sha256": "6928361a55bd5ba277354a73a1cf8d6d571c11591eba9e169f62fe29e5873f1a"
+        },
+        {
+          "name": "ru-lite.keenetic-cli.txt",
+          "format": "keeneticCli",
+          "group": "keenetic",
+          "size": 12669,
+          "sha256": "294b32e3cffe18a2aa6ba386862fdc39d57f1afaa9789afbaec0445b1a6fa70a"
+        },
+        {
+          "name": "ru-lite.openwrt.nft",
+          "format": "openwrtNft",
+          "group": "openwrt",
+          "size": 7267,
+          "sha256": "68a1dd7d8f78d41cfe1c8098034eddd4ea3b73ea8f8ee74729b3f6ea12e3b350"
+        },
+        {
+          "name": "ru-lite.dnsmasq.conf",
+          "format": "dnsmasq",
+          "group": "openwrt",
+          "size": 20083,
+          "sha256": "f7827466abf7e343f20c7db0312ca5d31a5bee3cadc9dc74bac306d9ba606836"
+        },
+        {
+          "name": "ru-lite.windows.bat",
+          "format": "windowsBat",
+          "group": "desktop",
+          "size": 21162,
+          "sha256": "1758cf4be9057a30e67c3e83533e783ca3da7f0cf1412bfb31cb629d75516a00"
+        },
+        {
+          "name": "ru-lite.linux.sh",
+          "format": "linuxSh",
+          "group": "desktop",
+          "size": 13558,
+          "sha256": "6a71399bff057f55c00bbc74ff06e9ac726b5e5c8f3e7f56a68adfb2dd8ddc42"
+        },
+        {
+          "name": "ru-lite.macos.sh",
+          "format": "macosSh",
+          "group": "desktop",
+          "size": 20137,
+          "sha256": "efa62a1654567bb42085d580616a69f3ddd328c1cb0c96056bd8127a0dbbdad0"
+        },
+        {
+          "name": "ru-lite.ipv4.txt",
+          "format": "ipv4",
+          "group": "text",
+          "size": 5926,
+          "sha256": "1c99abf3847a3f8febdc6cf1d083d7b8035ee69d8e230e487ecde5a20020bde2"
+        },
+        {
+          "name": "ru-lite.ipv6.txt",
+          "format": "ipv6",
+          "group": "text",
+          "size": 391,
+          "sha256": "7fe19a3efe5e4effcee8e461892ba566858f3a34a2e68abdaac785d801462168"
+        },
+        {
+          "name": "ru-lite.domains.txt",
+          "format": "domains",
+          "group": "text",
+          "size": 7318,
+          "sha256": "0ecccc477242a9fad082ea1f3660e0fcb2c2d407115276a1c2eb4f9b0e90877b"
+        }
+      ]
+    },
+    "ru-standard": {
+      "id": "ru-standard",
+      "title": "Standard",
+      "description": "Lite плюс маркетплейсы, Яндекс, Авито, 2ГИС, операторы, стриминги, доставка и ритейл. Не более 2000 подсетей",
+      "limit": 2000,
+      "ipv4": 740,
+      "ipv6": 72,
+      "domains": 1531,
+      "services": 80,
+      "categories": 15,
+      "diff": {
+        "added": 12,
+        "removed": 7,
+        "addedSample": [
+          "46.42.187.163/32",
+          "46.42.188.59/32",
+          "91.231.236.245/32",
+          "91.238.111.253/32",
+          "91.240.170.132/32",
+          "91.240.170.187/32",
+          "151.236.71.28/32",
+          "151.236.94.154/32",
+          "151.236.117.59/32",
+          "151.236.118.252/32",
+          "151.236.121.253/32",
+          "151.236.127.195/32"
+        ],
+        "removedSample": [
+          "81.222.127.186/32",
+          "91.240.169.237/32",
+          "151.236.65.237/32",
+          "151.236.83.86/32",
+          "151.236.102.205/32",
+          "151.236.122.221/32",
+          "185.31.114.57/32"
+        ]
+      },
+      "files": [
+        {
+          "name": "ru-standard.amnezia.json",
+          "format": "amnezia",
+          "group": "amnezia",
+          "size": 29468,
+          "sha256": "31a68d59dd91198da48653a320f53b2ce308c0ea31ee17f4a2c3e549e37cd93a"
+        },
+        {
+          "name": "ru-standard.amnezia-domains.json",
+          "format": "amneziaDomains",
+          "group": "amnezia",
+          "size": 168225,
+          "sha256": "493ee6111f48b1c7a623fb3b63e258ebdbfcea18838388fbc737fabcbb56595f"
+        },
+        {
+          "name": "ru-standard.wireguard.txt",
+          "format": "wireguard",
+          "group": "wireguard",
+          "size": 15165,
+          "sha256": "e51cd492fcf913ffb563bc1562cd881948c011e481095c1030877547f377fcc1"
+        },
+        {
+          "name": "ru-standard.wireguard-inverted.txt",
+          "format": "wireguardInverted",
+          "group": "wireguard",
+          "size": 114305,
+          "sha256": "73769569f8ddcd6b9a3fc64f121262ea6e582bcee6a017a115db5579c61ef34e"
+        },
+        {
+          "name": "ru-standard.singbox.srs",
+          "format": "singboxSrs",
+          "group": "singbox",
+          "size": 15837,
+          "sha256": "a49acef19f2c09b19418c6040a0dea50a4344366cdd2ea7b224371c2d316d19d"
+        },
+        {
+          "name": "ru-standard.singbox.json",
+          "format": "singboxJson",
+          "group": "singbox",
+          "size": 66618,
+          "sha256": "c5adfd3a1a3bd9d2611ff948a31e53d52ac0bfdf659232eac234d73285b9a299"
+        },
+        {
+          "name": "ru-standard.v2rayn.json",
+          "format": "v2rayn",
+          "group": "xray",
+          "size": 72670,
+          "sha256": "f882e6d4236291de666da2152445477bcc459e931fee558b2803147142ee6d78"
+        },
+        {
+          "name": "ru-standard.happ.json",
+          "format": "happ",
+          "group": "xray",
+          "size": 57680,
+          "sha256": "66e7360ea18561c964939dfdfc1b06fbf1ea2e9128cfd5dfae6ae6d5342dc5d8"
+        },
+        {
+          "name": "ru-standard.mihomo.mrs",
+          "format": "mihomoMrs",
+          "group": "clash",
+          "size": 3809,
+          "sha256": "80aef56c0a55f923b0f8b8aefa1e45fda9447d54910997fce06b7af1a661348f"
+        },
+        {
+          "name": "ru-standard.mihomo.yaml",
+          "format": "mihomoYaml",
+          "group": "clash",
+          "size": 18881,
+          "sha256": "33aeb848ec2cbbb4f03a8741eec3d98aaa9b21aba942e3f4d54c2cccdf3bd1cb"
+        },
+        {
+          "name": "ru-standard.clash.yaml",
+          "format": "clashClassical",
+          "group": "clash",
+          "size": 87242,
+          "sha256": "34568763bccb899853de28938c87ce779475f3abe13a49d8268a2c279fa8d961"
+        },
+        {
+          "name": "ru-standard.surge.list",
+          "format": "surge",
+          "group": "surge",
+          "size": 77839,
+          "sha256": "315f3df6c4cfc99ee782543cb8887d95b8c642729708654fa3d6863ff57111f6"
+        },
+        {
+          "name": "ru-standard.quantumultx.list",
+          "format": "quantumultx",
+          "group": "quantumultx",
+          "size": 86932,
+          "sha256": "3a1736994755a036119c86a37dbe9f72997d57b3d58c8314367b4388056ea6fb"
+        },
+        {
+          "name": "ru-standard.mikrotik.rsc",
+          "format": "mikrotik",
+          "group": "mikrotik",
+          "size": 34205,
+          "sha256": "054f38840bcab4e435b4880efc71664d980b48d295764bc7d80f140378ce47ad"
+        },
+        {
+          "name": "ru-standard.mikrotik-ipv6.rsc",
+          "format": "mikrotikIpv6",
+          "group": "mikrotik",
+          "size": 3747,
+          "sha256": "582d856b34fe6bc98e80632dc36b66a0e378e6174295a3163f518a5060f2568d"
+        },
+        {
+          "name": "ru-standard.keenetic.bat",
+          "format": "keeneticBat",
+          "group": "keenetic",
+          "size": 39215,
+          "sha256": "f513ab7310a41a345c5373701d6311e6d79143f1d303d1456eb9e287a1445b24"
+        },
+        {
+          "name": "ru-standard.keenetic-cli.txt",
+          "format": "keeneticCli",
+          "group": "keenetic",
+          "size": 26088,
+          "sha256": "cccbefb3b8f3122c6acc830fdfb79539389d64f3e93562d2790d932008b58473"
+        },
+        {
+          "name": "ru-standard.openwrt.nft",
+          "format": "openwrtNft",
+          "group": "openwrt",
+          "size": 15259,
+          "sha256": "002193e5d9039b55494af0640aedbcfd70cc306d101d5d0962b38f570d82d2a5"
+        },
+        {
+          "name": "ru-standard.dnsmasq.conf",
+          "format": "dnsmasq",
+          "group": "openwrt",
+          "size": 74630,
+          "sha256": "32bcd324c60b3c7f27d4a172a4b3dacbcd4910cbee8046f72b0ce88c88594826"
+        },
+        {
+          "name": "ru-standard.windows.bat",
+          "format": "windowsBat",
+          "group": "desktop",
+          "size": 43964,
+          "sha256": "7c4f2473f834f8cca29b3b15d007211d8b6de408ceaa23bf765c42c5285bac98"
+        },
+        {
+          "name": "ru-standard.linux.sh",
+          "format": "linuxSh",
+          "group": "desktop",
+          "size": 28875,
+          "sha256": "e2dde08e71e69b136bafea620c3a26d069df472ce096fe5cb02f92d22198929f"
+        },
+        {
+          "name": "ru-standard.macos.sh",
+          "format": "macosSh",
+          "group": "desktop",
+          "size": 43141,
+          "sha256": "a179aca0b3d3509f8f7fb4ba4f5e4679dcc319d29aaf3450d23cee1a700d14eb"
+        },
+        {
+          "name": "ru-standard.ipv4.txt",
+          "format": "ipv4",
+          "group": "text",
+          "size": 12447,
+          "sha256": "9e23caf487aae0ce6eb66ab91daae1996bd60cd6027bdfab18ff43247f050184"
+        },
+        {
+          "name": "ru-standard.ipv6.txt",
+          "format": "ipv6",
+          "group": "text",
+          "size": 1354,
+          "sha256": "e6f87ded4a7624c19acbbb1b036a05878c8a5dcf70d22778555022bc17dae62f"
+        },
+        {
+          "name": "ru-standard.domains.txt",
+          "format": "domains",
+          "group": "text",
+          "size": 26924,
+          "sha256": "ddc9fd753de2f17a1110c6f4ddbbdac37ae9ed79954c4ab0a3ea3bd958d87758"
+        }
+      ]
+    },
+    "ru-full": {
+      "id": "ru-full",
+      "title": "Full",
+      "description": "Standard плюс вся российская зона по данным ipdeny. Тысячи подсетей, только для клиентов, которые стабильно держат большие таблицы маршрутов",
+      "limit": null,
+      "ipv4": 8660,
+      "ipv6": 2176,
+      "domains": 1531,
+      "services": 80,
+      "categories": 15,
+      "diff": {
+        "added": 0,
+        "removed": 0,
+        "addedSample": [],
+        "removedSample": []
+      },
+      "files": [
+        {
+          "name": "ru-full.amnezia.json",
+          "format": "amnezia",
+          "group": "amnezia",
+          "size": 334505,
+          "sha256": "02145408b22754c37ed25f774ae0fd0ddc38230b752486cfaa1013b7a748cdd0"
+        },
+        {
+          "name": "ru-full.amnezia-domains.json",
+          "format": "amneziaDomains",
+          "group": "amnezia",
+          "size": 473262,
+          "sha256": "f46395a9e06b7ed6b8ab8eebf63cc1b60ea40f3931293496cf9dd09c072b9eb3"
+        },
+        {
+          "name": "ru-full.wireguard.txt",
+          "format": "wireguard",
+          "group": "wireguard",
+          "size": 182632,
+          "sha256": "97a575ba2ae98dcfb92934e26ab78a5123c816663af8a29f025a323d79e91eaa"
+        },
+        {
+          "name": "ru-full.wireguard-inverted.txt",
+          "format": "wireguardInverted",
+          "group": "wireguard",
+          "size": 585947,
+          "sha256": "fb4324d43fab30146a6d74abac72f385222983ac72c7da334fd8815880726c82"
+        },
+        {
+          "name": "ru-full.singbox.srs",
+          "format": "singboxSrs",
+          "group": "singbox",
+          "size": 62310,
+          "sha256": "e434e5867dfbb0de2ee7018c45f92a9c2ad4dfc62d8c6ca637faf659906028da"
+        },
+        {
+          "name": "ru-full.singbox.json",
+          "format": "singboxJson",
+          "group": "singbox",
+          "size": 331929,
+          "sha256": "60963efc1954e9d51879553c4ae58b0dc6634823e87e81707be194d432befb55"
+        },
+        {
+          "name": "ru-full.v2rayn.json",
+          "format": "v2rayn",
+          "group": "xray",
+          "size": 317929,
+          "sha256": "8f7b4068d2d9e8abeb0821fdd9f42ce5b5bddc420148cff9821c3a4d4b30067c"
+        },
+        {
+          "name": "ru-full.happ.json",
+          "format": "happ",
+          "group": "xray",
+          "size": 282891,
+          "sha256": "746ce5afd0d65d3b850ebecd4a699c4fc94997056c6e6bbf09e778caa7a9978d"
+        },
+        {
+          "name": "ru-full.mihomo.mrs",
+          "format": "mihomoMrs",
+          "group": "clash",
+          "size": 57840,
+          "sha256": "8fe132a0cf8cc640d8d9b7f137b12baef19ece0f51f2f562da2cd784b7f8a22b"
+        },
+        {
+          "name": "ru-full.mihomo.yaml",
+          "format": "mihomoYaml",
+          "group": "clash",
+          "size": 234068,
+          "sha256": "a1110acbfe6ff8603aeac6994a98292017f258ea62bd5d5a9ad49dac22be9718"
+        },
+        {
+          "name": "ru-full.clash.yaml",
+          "format": "clashClassical",
+          "group": "clash",
+          "size": 474941,
+          "sha256": "9bbc61c436cae7c34ad03bba2757a3906e00ad0d384653b9ac5feb6de4c97a53"
+        },
+        {
+          "name": "ru-full.surge.list",
+          "format": "surge",
+          "group": "surge",
+          "size": 425442,
+          "sha256": "2c13765327ad50e11ff6c8e22d43a3075f945d67e4c1a999e3d7ef3726c41e48"
+        },
+        {
+          "name": "ru-full.quantumultx.list",
+          "format": "quantumultx",
+          "group": "quantumultx",
+          "size": 414487,
+          "sha256": "930e557f928fca151c1d34d12eec02f6a799a8c5f1ddac833d151221627b6104"
+        },
+        {
+          "name": "ru-full.mikrotik.rsc",
+          "format": "mikrotik",
+          "group": "mikrotik",
+          "size": 352110,
+          "sha256": "ab625e92db1542289698a97974cd3ef89508daa074bd6918f32430129d4ccbc9"
+        },
+        {
+          "name": "ru-full.mikrotik-ipv6.rsc",
+          "format": "mikrotikIpv6",
+          "group": "mikrotik",
+          "size": 88217,
+          "sha256": "d25c5deec332478fba2bd3edac9df2aeb9a859a600a03b866652585d390e01cb"
+        },
+        {
+          "name": "ru-full.keenetic.bat",
+          "format": "keeneticBat",
+          "group": "keenetic",
+          "size": 438140,
+          "sha256": "58101bb0557e0ecf9da02838977fce67d050605560043d7b57716b05cf1a92e3"
+        },
+        {
+          "name": "ru-full.keenetic-cli.txt",
+          "format": "keeneticCli",
+          "group": "keenetic",
+          "size": 291521,
+          "sha256": "018c54b1dc7ae94649a734f943e7db3f1f4c6868997b945bc60ea52f94fcdcbc"
+        },
+        {
+          "name": "ru-full.openwrt.nft",
+          "format": "openwrtNft",
+          "group": "openwrt",
+          "size": 180930,
+          "sha256": "12c75f86e8f0d6e4e38180f237925923415372bf24d31b754f977c3e715716fa"
+        },
+        {
+          "name": "ru-full.dnsmasq.conf",
+          "format": "dnsmasq",
+          "group": "openwrt",
+          "size": 68498,
+          "sha256": "ae8d6168870430288d56b7b54d6cd4e9522466599f08b75f222e377e9f4db348"
+        },
+        {
+          "name": "ru-full.windows.bat",
+          "format": "windowsBat",
+          "group": "desktop",
+          "size": 490397,
+          "sha256": "dbfdca1f51f6c06c9ea24b9e387986842c6d6e8c6ff1fffa8a7d3d820a690b4e"
+        },
+        {
+          "name": "ru-full.linux.sh",
+          "format": "linuxSh",
+          "group": "desktop",
+          "size": 366450,
+          "sha256": "4581559ae092407e267c29635ee5ea7ef6176df4e24b0a344673c36948719d7b"
+        },
+        {
+          "name": "ru-full.macos.sh",
+          "format": "macosSh",
+          "group": "desktop",
+          "size": 565852,
+          "sha256": "3891017d075954b8da91866bbd37f2649f32fdbaf569be25936c6ad91fb8ffd4"
+        },
+        {
+          "name": "ru-full.ipv4.txt",
+          "format": "ipv4",
+          "group": "text",
+          "size": 135324,
+          "sha256": "6cfc3adf77b241818ceb2e98047fe5d1e811941b27362e28b85912f60fa95865"
+        },
+        {
+          "name": "ru-full.ipv6.txt",
+          "format": "ipv6",
+          "group": "text",
+          "size": 33524,
+          "sha256": "73be2b8e8cedb3cd53cc1bfeb67089c736ca716fd3788ad49c05e10a831524a0"
+        },
+        {
+          "name": "ru-full.domains.txt",
+          "format": "domains",
+          "group": "text",
+          "size": 26924,
+          "sha256": "ddc9fd753de2f17a1110c6f4ddbbdac37ae9ed79954c4ab0a3ea3bd958d87758"
+        }
+      ]
+    }
+  },
+  "shared": [
+    {
+      "name": "geoip.dat",
+      "format": "geoip",
+      "group": "xray",
+      "size": 147581,
+      "sha256": "0ccc8bfe802d1eedaf7bb2bbdd5b171bf308799ac7b592ddef9b63cf61208b5f"
+    },
+    {
+      "name": "geosite.dat",
+      "format": "geosite",
+      "group": "xray",
+      "size": 78838,
+      "sha256": "d72d6e490b120354b2c0a4fcb34e31393fcc7775d16dc5cb4ee5582ceb7aeb9f"
+    }
+  ],
+  "formats": [
+    {
+      "id": "amnezia",
+      "group": "amnezia",
+      "title": "AmneziaVPN",
+      "description": "Список подсетей для site-based split tunneling. Импорт: Настройки подключения, Split Tunneling, Import",
+      "ipv6": false,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "amneziaDomains",
+      "group": "amnezia",
+      "title": "AmneziaVPN с доменами",
+      "description": "Те же подсети плюс домены с адресами. Десктопный клиент 5.x ре-резолвит домены при каждом подключении",
+      "ipv6": false,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "wireguard",
+      "group": "wireguard",
+      "title": "AllowedIPs",
+      "description": "Строка AllowedIPs с российскими подсетями: через туннель идут только они",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "wireguardInverted",
+      "group": "wireguard",
+      "title": "AllowedIPs инвертированный",
+      "description": "Весь интернет минус российские подсети: через туннель идёт всё, кроме России",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "singboxSrs",
+      "group": "singbox",
+      "title": "sing-box rule-set",
+      "description": "Бинарный rule-set для sing-box, Hiddify, NekoBox, Karing, Throne, Podkop",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "singboxJson",
+      "group": "singbox",
+      "title": "sing-box source",
+      "description": "Исходный JSON rule-set версии 1 с ip_cidr и domain_suffix",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "geoip",
+      "group": "xray",
+      "title": "geoip.dat",
+      "description": "Файл для Xray, v2rayN, v2rayNG, Happ, Streisand с тегами ru-lite, ru-standard, ru-full",
+      "ipv6": true,
+      "domains": false,
+      "shared": true
+    },
+    {
+      "id": "geosite",
+      "group": "xray",
+      "title": "geosite.dat",
+      "description": "Домены для Xray с тегами ru-lite и ru-standard",
+      "ipv6": false,
+      "domains": true,
+      "shared": true
+    },
+    {
+      "id": "v2rayn",
+      "group": "xray",
+      "title": "v2rayN правила",
+      "description": "Набор правил маршрутизации для импорта в v2rayN и v2rayNG из буфера обмена",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "happ",
+      "group": "xray",
+      "title": "Happ routing",
+      "description": "Профиль маршрутизации Happ с DirectIp и DirectSites",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "mihomoMrs",
+      "group": "clash",
+      "title": "Mihomo .mrs",
+      "description": "Бинарный rule-provider с behavior ipcidr для Mihomo, Clash Verge, FlClash",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "mihomoYaml",
+      "group": "clash",
+      "title": "Clash ipcidr",
+      "description": "YAML rule-provider с behavior ipcidr, понимает любой Clash",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "clashClassical",
+      "group": "clash",
+      "title": "Clash classical",
+      "description": "YAML rule-provider с behavior classical: IP-CIDR, IP-CIDR6 и DOMAIN-SUFFIX",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "surge",
+      "group": "surge",
+      "title": "Surge / Shadowrocket / Loon",
+      "description": "Текстовый rule-set: IP-CIDR, IP-CIDR6, DOMAIN-SUFFIX",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "quantumultx",
+      "group": "quantumultx",
+      "title": "Quantumult X",
+      "description": "Фильтр для filter_remote с политикой direct",
+      "ipv6": true,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "mikrotik",
+      "group": "mikrotik",
+      "title": "MikroTik IPv4",
+      "description": "Скрипт .rsc с address-list для RouterOS",
+      "ipv6": false,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "mikrotikIpv6",
+      "group": "mikrotik",
+      "title": "MikroTik IPv6",
+      "description": "Скрипт .rsc с ipv6 address-list для RouterOS",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "keeneticBat",
+      "group": "keenetic",
+      "title": "Keenetic маршруты",
+      "description": "Файл .bat для импорта в раздел Маршрутизация, интерфейс выбирается при загрузке",
+      "ipv6": false,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "keeneticCli",
+      "group": "keenetic",
+      "title": "Keenetic CLI",
+      "description": "Команды ip route для консоли KeeneticOS",
+      "ipv6": false,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "openwrtNft",
+      "group": "openwrt",
+      "title": "OpenWrt nftables",
+      "description": "Набор элементов для nft set в fw4",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "dnsmasq",
+      "group": "openwrt",
+      "title": "dnsmasq nftset",
+      "description": "Строки nftset для доменной маршрутизации в dnsmasq-full",
+      "ipv6": false,
+      "domains": true,
+      "shared": false
+    },
+    {
+      "id": "windowsBat",
+      "group": "desktop",
+      "title": "Windows route",
+      "description": "Скрипт route add для запуска от администратора",
+      "ipv6": false,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "linuxSh",
+      "group": "desktop",
+      "title": "Linux ip route",
+      "description": "Скрипт с ip -batch для Linux",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "macosSh",
+      "group": "desktop",
+      "title": "macOS route",
+      "description": "Скрипт route add для macOS",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "ipv4",
+      "group": "text",
+      "title": "IPv4 CIDR",
+      "description": "Подсети IPv4 по строке, универсальный формат",
+      "ipv6": false,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "ipv6",
+      "group": "text",
+      "title": "IPv6 CIDR",
+      "description": "Подсети IPv6 по строке",
+      "ipv6": true,
+      "domains": false,
+      "shared": false
+    },
+    {
+      "id": "domains",
+      "group": "text",
+      "title": "Домены",
+      "description": "Домены по строке для DNS-маршрутизации",
+      "ipv6": false,
+      "domains": true,
+      "shared": false
+    }
+  ],
+  "guard": {
+    "subtracted4": 0,
+    "subtracted6": 0
+  }
+}
