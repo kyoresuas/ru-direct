@@ -107,7 +107,7 @@ npm run lint
 npm test
 ```
 
-Node.js 20 or newer. CI runs lint, tests and config validation on Node.js 20, 22 and 24. A daily workflow publishes the rolling `latest` release, the `release` branch and the site.
+Node.js 22 or newer. CI runs lint, tests and config validation on Node.js 22 and 24. A daily workflow publishes the rolling `latest` release, the `release` branch and the site.
 
 ## Support the project
 

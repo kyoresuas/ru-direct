@@ -37,10 +37,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -52,14 +52,14 @@ jobs:
         run: npm run test:typecheck
 
       - name: Restore network cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: cache/
           key: network-cache-${{ github.run_id }}
           restore-keys: network-cache-
 
       - name: Restore tools
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .tools/
           key: tools-${{ runner.os }}-${{ hashFiles('src/contracts/sources/sources.contract.ts') }}
@@ -138,7 +138,7 @@ jobs:
 
       - name: Upload manifest for pages
         if: steps.diff.outputs.changed == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: manifest
           path: dist/manifest.json
