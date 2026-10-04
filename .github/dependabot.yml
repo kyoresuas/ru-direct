@@ -8,6 +8,13 @@ updates:
     groups:
       dev-dependencies:
         dependency-type: "development"
+    ignore:
+      # typescript-eslint пока не поддерживает TypeScript 7
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      # типы держим под минимальную версию Node из engines
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     labels: ["dependencies"]
 
   - package-ecosystem: "github-actions"
