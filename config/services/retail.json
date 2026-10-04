@@ -125,6 +125,29 @@
       ]
     },
     {
+      "name": "ВсеИнструменты.ру",
+      "tier": "standard",
+      "notes": "Своих ASN нет: сайт и API за ServicePipe, статика в CDNnow и CDNvideo, только точные адреса",
+      "domains": [
+        "api.vseinstrumenti.ru",
+        "assets.vseinstrumenti.ru",
+        "auth.vseinstrumenti.ru",
+        "b2b.vseinstrumenti.ru",
+        "cdn.vseinstrumenti.ru",
+        "content.vseinstrumenti.ru",
+        "id.vseinstrumenti.ru",
+        "img.vseinstrumenti.ru",
+        "lk.vseinstrumenti.ru",
+        "m.vseinstrumenti.ru",
+        "mapi.vseinstrumenti.ru",
+        "pay.vseinstrumenti.ru",
+        "spb.vseinstrumenti.ru",
+        "sso.vseinstrumenti.ru",
+        "vseinstrumenti.ru",
+        "www.vseinstrumenti.ru"
+      ]
+    },
+    {
       "name": "DNS",
       "tier": "standard",
       "domains": [
