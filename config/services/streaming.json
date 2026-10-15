@@ -85,8 +85,8 @@
       "apps": [
         {
           "package": "ru.more.play",
-          "version": "8.185.0",
-          "auditedAt": "2026-09-25"
+          "version": "8.188.1",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -117,13 +117,16 @@
       "tier": "standard",
       "domains": [
         "api.udms.kion.ru",
+        "hts.mts.ru",
         "htv-live.kion.ru",
         "ipc.kion.ru",
         "kion.ru",
         "kls.kion.ru",
         "km.kion.ru",
         "mdp.kion.ru",
+        "mgw.mts.ru",
         "prod.tvh.mts.ru",
+        "ru-msk-2.store.cloud.mts.ru",
         "services.kion.ru",
         "static.kion.ru",
         "top.kion.ru",
@@ -135,8 +138,8 @@
       "apps": [
         {
           "package": "ru.mts.mtstv",
-          "version": "3.1.167.2",
-          "auditedAt": "2026-09-25"
+          "version": "3.1.168.8",
+          "auditedAt": "2026-10-15"
         }
       ]
     },

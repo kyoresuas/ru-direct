@@ -38,8 +38,16 @@
         "qr.nspk.ru",
         "sbp.nspk.ru",
         "sub.nspk.ru",
+        "web.qr.nspk.ru",
         "www.nspk.ru",
         "www.privetmir.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.nspk.sbpay",
+          "version": "2.1.20",
+          "auditedAt": "2026-10-15"
+        }
       ]
     },
     {

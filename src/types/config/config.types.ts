@@ -76,6 +76,8 @@ export interface IGuardConfig {
   cidrs: string[];
   // Автономные системы, которые запрещено указывать в сервисах
   forbiddenAsns: Array<{ asn: number; name: string }>;
+  // Российские CDN, адрес сервиса в которых попадает подсетью ноды, а не /32
+  cdnAsns: Array<{ asn: number; name: string }>;
 }
 
 export interface IExcludeEntry {

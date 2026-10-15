@@ -66,6 +66,7 @@ export class ConfigService {
       sources: guard.sources ?? [],
       cidrs: guard.cidrs ?? [],
       forbiddenAsns: guard.forbiddenAsns ?? [],
+      cdnAsns: guard.cdnAsns ?? [],
     };
   }
 

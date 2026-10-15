@@ -85,20 +85,36 @@
         "micropay-orders.api.2gis.ru",
         "mobile-weather.api.2gis.ru",
         "mobile.cars.api.2gis.com",
+        "nsdk-s02.uss.2gis.com",
+        "nsdk-s03.uss.2gis.com",
+        "nsdk-s14.uss.2gis.com",
+        "nsdk-s15.uss.2gis.com",
+        "nsdk-s16.uss.2gis.com",
         "payments.2gis.ru",
+        "rtn-centrifugo.api.2gis.ru",
         "s1.bss.2gis.com",
         "styles.api.2gis.com",
         "tile0.maps.2gis.com",
         "tile1.maps.2gis.com",
         "tile2.maps.2gis.com",
         "tile3.maps.2gis.com",
-        "transport.api.2gis.com"
+        "timesync.2gis.ru",
+        "transport.api.2gis.com",
+        "v4-android-h02.uss.2gis.com",
+        "v4-android-h03.uss.2gis.com",
+        "v4-android-h08.uss.2gis.com",
+        "v4-android-h14.uss.2gis.com",
+        "v4-android-h15.uss.2gis.com",
+        "v4-android-s02.uss.2gis.com",
+        "v4-android-s03.uss.2gis.com",
+        "v4-android-s14.uss.2gis.com",
+        "v4-android-s15.uss.2gis.com"
       ],
       "apps": [
         {
           "package": "ru.dublgis.dgismobile",
-          "version": "7.28.0.629.18",
-          "auditedAt": "2026-09-25"
+          "version": "7.30.0.633.26",
+          "auditedAt": "2026-10-15"
         }
       ]
     }

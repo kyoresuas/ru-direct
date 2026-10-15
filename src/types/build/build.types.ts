@@ -78,6 +78,8 @@ export interface IBuildDeps {
   guard: GuardService;
   // Зона страны
   zones: ZonesService;
+  // Российские CDN, адрес в которых попадает подсетью ноды
+  cdnAsns: number[];
   // Подсети, которые обязаны идти через VPN
   exclude: IExcludeEntry[];
   // Категории сервисов

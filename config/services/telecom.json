@@ -14,15 +14,18 @@
         "api.mtsdengi.ru",
         "app.uipltf.mts.ru",
         "auth.ssl.mts.ru",
+        "b.mts.ru",
         "b2b.mts.ru",
         "calls2cc-ws.mts.ru",
         "cashback.mts.ru",
-        "cashback.ssl.mts.ru",
+        "cloud.mts.ru",
         "cm.a.mts.ru",
         "cms.developers.mts.ru",
         "content.goodok.mts.ru",
         "devices.ssl.mts.ru",
+        "dialer.mts.ru",
         "dom.ssl.mts.ru",
+        "domofon.mts.ru",
         "e-burg.mts.ru",
         "eds.htv-lab.mts.ru",
         "family-api.mts.ru",
@@ -34,8 +37,14 @@
         "htv-vsc-moscow2.mts.ru",
         "id.mts.ru",
         "idgw.mobileid.mts.ru",
+        "ihelper.mts.ru",
+        "insurance.mts.ru",
+        "ip.mts.ru",
+        "kruti.mts.ru",
+        "l.mts.ru",
         "lapis.cashback.mts.ru",
         "lapis.new-cashback.mts.ru",
+        "live.mts.ru",
         "lk-b2b.mts.ru",
         "lk-subscribe.mts.ru",
         "lk.mts.ru",
@@ -52,26 +61,43 @@
         "mts-service.mts.ru",
         "mts.ru",
         "mtsdengi.ru",
+        "mtsmoney.mts.ru",
+        "myconnect-acs.mts.ru",
         "mymts.geocenter.mts.ru",
         "online-chat.mts.ru",
         "pay.mts.ru",
         "payment.mts.ru",
+        "pc.mts.ru",
+        "personal.mts.ru",
+        "pki.mts.ru",
+        "premium.mts.ru",
+        "profile.mts.ru",
         "push.mts.ru",
+        "pushsdk.mts.ru",
         "sdk.mts.ru",
+        "self-reg.mts.ru",
+        "shop.mts.ru",
         "static.cashback.mts.ru",
         "static.mt.mts.ru",
         "static.mts.ru",
         "static.mtsdengi.ru",
         "static.ssl.mts.ru",
         "staticpayment.ssl.mts.ru",
+        "stroki.mts.ru",
+        "support.mts.ru",
         "tvoyfintech.online-chat.mts.ru",
-        "www.mts.ru"
+        "ve-bff.mts.ru",
+        "ve-public-prod.mts.ru",
+        "ve-public.mts.ru",
+        "web.mrs.mts.ru",
+        "www.mts.ru",
+        "www.shop.mts.ru"
       ],
       "apps": [
         {
           "package": "ru.mts.mymts",
-          "version": "6.75",
-          "auditedAt": "2026-09-25"
+          "version": "6.77",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -87,8 +113,11 @@
         "balance.beeline.ru",
         "beeline.ru",
         "beelinenow.ru",
+        "contract.beeline.ru",
         "dl-pl.beeline.ru",
         "dl-t.beeline.ru",
+        "dl.beeline.ru",
+        "fcpe.beeline.ru",
         "idphydra-int.beeline.ru",
         "idphydra.beeline.ru",
         "idplogin-int.beeline.ru",
@@ -99,6 +128,7 @@
         "idpxbrs.beeline.ru",
         "iem-int-idp-hydra.beeline.ru",
         "iem-int-idp-login.beeline.ru",
+        "locator.beeline.ru",
         "miniapp.beeline.ru",
         "mob-t.beeline.ru",
         "moskva.beeline.ru",
@@ -111,13 +141,14 @@
         "static.beeline.ru",
         "toggles-pl.beeline.ru",
         "toggles-st.beeline.ru",
+        "toggles.beeline.ru",
         "www.beeline.ru"
       ],
       "apps": [
         {
           "package": "ru.beeline.services",
-          "version": "5.47.5",
-          "auditedAt": "2026-09-25"
+          "version": "5.49.0",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -193,13 +224,14 @@
         "voicea2p.s3.t2.ru",
         "www.t2.ru",
         "www.tele2.ru",
-        "x2-forever.t2.ru"
+        "x2-forever.t2.ru",
+        "yandexcloud-api.t2.ru"
       ],
       "apps": [
         {
           "package": "ru.tele2.mytele2",
-          "version": "6.49.0",
-          "auditedAt": "2026-09-25"
+          "version": "6.51.0_rustore",
+          "auditedAt": "2026-10-15"
         }
       ]
     },

@@ -13,6 +13,10 @@
         }
       ],
       "domains": [
+        "20.img.avito.st",
+        "30.img.avito.st",
+        "50.img.avito.st",
+        "70.img.avito.st",
         "api.avito.ru",
         "app-quic.avito.ru",
         "app.avito.ru",
@@ -42,8 +46,8 @@
       "apps": [
         {
           "package": "com.avito.android",
-          "version": "233.5",
-          "auditedAt": "2026-09-25"
+          "version": "235.1",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -59,7 +63,6 @@
         "cdn.cian.site",
         "chats.cian.ru",
         "cian.ru",
-        "cian.site",
         "f.cian.ru",
         "files.cian.ru",
         "fin.cian.ru",
@@ -85,8 +88,8 @@
       "apps": [
         {
           "package": "ru.cian.main",
-          "version": "2.445.0",
-          "auditedAt": "2026-09-25"
+          "version": "2.448.0",
+          "auditedAt": "2026-10-15"
         }
       ]
     },

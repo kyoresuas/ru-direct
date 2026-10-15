@@ -80,6 +80,7 @@ describe("BuildService", () => {
       ripe,
       guard,
       zones,
+      cdnAsns: [],
       exclude: [{ cidr: "5.61.16.0/24", comment: "" }],
       categories,
     });
@@ -108,6 +109,46 @@ describe("BuildService", () => {
     expect(result.guard.subtracted4).toBeGreaterThan(0);
   });
 
+  it("адрес в сети CDN попадает подсетью ноды, а не /32", async () => {
+    const cdnDns = {
+      resolveMany: async (domains: readonly string[]) =>
+        domains.map((domain) => ({
+          domain,
+          ipv4: domain === "cdn.bank.example" ? ["46.42.188.59"] : [],
+          ipv6: [],
+        })),
+    } as unknown as DnsService;
+    const cdnRipe = {
+      getAnnouncedPrefixes: async (asn: number) => ({
+        asn,
+        ipv4: ["46.42.184.0/21", "46.42.188.0/24"],
+        ipv6: [],
+      }),
+      getPrefixCountries: async () => ["RU"],
+    } as unknown as RipeService;
+    const build = new BuildService({
+      dns: cdnDns,
+      ripe: cdnRipe,
+      guard,
+      zones,
+      cdnAsns: [57363],
+      exclude: [],
+      categories: [
+        {
+          id: "banks",
+          title: "Банки",
+          description: "тест",
+          services: [
+            { name: "Банк", tier: Tier.LITE, domains: ["cdn.bank.example"] },
+          ],
+        },
+      ],
+    });
+    const result = await build.build();
+
+    expect(result.tiers[Tier.LITE].ipv4).toEqual(["46.42.188.0/24"]);
+  });
+
   it("падает при превышении лимита уровня", async () => {
     const many: IServiceCategory[] = [
       {
@@ -132,6 +173,7 @@ describe("BuildService", () => {
       ripe,
       guard,
       zones,
+      cdnAsns: [],
       exclude: [],
       categories: many,
     });

@@ -8,6 +8,7 @@ import {
   sortCidrs,
   bigIntToIp,
   ipToBigInt,
+  nodePrefix,
   isValidCidr,
   prefixToMask,
   rangeToCidrs,
@@ -169,5 +170,35 @@ describe("индекс и служебные функции", () => {
     expect(prefixToMask(21)).toBe("255.255.248.0");
     expect(prefixToMask(0)).toBe("0.0.0.0");
     expect(prefixToMask(32)).toBe("255.255.255.255");
+  });
+});
+
+describe("подсеть ноды CDN", () => {
+  const limits = { [IpFamily.V4]: 24, [IpFamily.V6]: 48 };
+
+  it("берёт самый узкий анонс, содержащий адрес", () => {
+    const prefixes = ["46.42.184.0/21", "46.42.188.0/24", "46.42.188.0/25"];
+
+    expect(nodePrefix("46.42.188.59", prefixes, limits)).toBe(
+      "46.42.188.0/25",
+    );
+    expect(nodePrefix("46.42.187.196", prefixes, limits)).toBe(
+      "46.42.187.0/24",
+    );
+  });
+
+  it("сужает широкий анонс до подсети вокруг адреса", () => {
+    expect(nodePrefix("195.209.66.127", ["195.208.0.0/15"], limits)).toBe(
+      "195.209.66.0/24",
+    );
+    expect(nodePrefix("2a02:6b8:a::a", ["2a02:6b8::/32"], limits)).toBe(
+      "2a02:6b8:a::/48",
+    );
+  });
+
+  it("возвращает null вне списка и для другого семейства", () => {
+    expect(nodePrefix("8.8.8.8", ["46.42.184.0/21"], limits)).toBeNull();
+    expect(nodePrefix("2a02:6b8::1", ["46.42.184.0/21"], limits)).toBeNull();
+    expect(nodePrefix("не адрес", ["46.42.184.0/21"], limits)).toBeNull();
   });
 });

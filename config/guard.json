@@ -1,5 +1,5 @@
 {
-  "description": "Guard: подсети и автономные системы, которым не место в списках. Внешние списки скачиваются при сборке и вычитаются из всех уровней, forbiddenAsns запрещены в config/services",
+  "description": "Guard: подсети и автономные системы, которым не место в списках. Внешние списки скачиваются при сборке и вычитаются из всех уровней, forbiddenAsns запрещены в config/services. Адрес домена сервиса в сети cdnAsns попадает в список подсетью ноды до /24, а не точным /32, потому что такие CDN ротируют адреса и отдают разные ноды по GeoDNS",
   "sources": [
     {
       "name": "Cloudflare IPv4",
@@ -60,10 +60,18 @@
     { "asn": 57724, "name": "DDoS-Guard" },
     { "asn": 197068, "name": "Qrator" },
     { "asn": 51115, "name": "HLL / Qrator" },
-    { "asn": 201776, "name": "Servicepipe" },
+    { "asn": 201706, "name": "Servicepipe" },
     { "asn": 57363, "name": "CDNvideo" },
     { "asn": 1299, "name": "Arelion" },
     { "asn": 3356, "name": "Lumen" },
     { "asn": 174, "name": "Cogent" }
+  ],
+  "cdnAsns": [
+    { "asn": 34879, "name": "NGENIX" },
+    { "asn": 204878, "name": "NGENIX" },
+    { "asn": 57363, "name": "CDNvideo" },
+    { "asn": 201706, "name": "Servicepipe" },
+    { "asn": 51115, "name": "HLL / Qrator" },
+    { "asn": 204720, "name": "CDNetworks" }
   ]
 }

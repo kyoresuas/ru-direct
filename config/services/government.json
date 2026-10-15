@@ -52,23 +52,31 @@
       "apps": [
         {
           "package": "ru.rostel",
-          "version": "27.0.1.9810-rustore",
-          "auditedAt": "2026-08-27"
+          "version": "27.1.0.9876-rustore",
+          "auditedAt": "2026-10-15"
         },
         {
           "package": "ru.gosuslugi.goskey",
           "version": "2.20.0",
-          "auditedAt": "2026-08-27"
+          "auditedAt": "2026-10-15"
         }
       ]
     },
     {
       "name": "ФНС и Мой налог",
       "tier": "lite",
+      "cidrs": [
+        {
+          "cidr": "213.24.64.181/32",
+          "reason": "lknpd.nalog.ru, API Моего налога. NS налоговой не отвечают зарубежным резолверам, поэтому сборка в CI домен не резолвит"
+        }
+      ],
       "domains": [
+        "data.nalog.ru",
         "egrul.nalog.ru",
         "lkfl.nalog.ru",
         "lkip.nalog.ru",
+        "lknpd.nalog.ru",
         "lkul.nalog.ru",
         "nalog.gov.ru",
         "nalog.ru",
@@ -79,8 +87,8 @@
       "apps": [
         {
           "package": "com.gnivts.selfemployed",
-          "version": "4.8.1-prod",
-          "auditedAt": "2026-08-27"
+          "version": "4.10.1-prod",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -126,6 +134,8 @@
         "mintrans.gov.ru",
         "minzdrav.gov.ru",
         "mvd.ru",
+        "nuc-cdp.digital.gov.ru",
+        "nuc-cdp.voskhod.ru",
         "pfr.gov.ru",
         "pravo.gov.ru",
         "proverki.gov.ru",

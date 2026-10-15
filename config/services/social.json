@@ -198,8 +198,10 @@
         "clck.dzen.ru",
         "default.zen.zeta.dzen.ru",
         "dzen.ru",
+        "login.yandex.ru",
         "m.dzen.ru",
         "m.zen.yandex.ru",
+        "oauth.yandex.ru",
         "passport.dzen.ru",
         "rum.dzen.ru",
         "s3.dzeninfra.ru",
@@ -214,8 +216,8 @@
       "apps": [
         {
           "package": "ru.zen.android",
-          "version": "26.9.1",
-          "auditedAt": "2026-09-25"
+          "version": "26.10.0",
+          "auditedAt": "2026-10-15"
         }
       ]
     },

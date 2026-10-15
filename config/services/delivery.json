@@ -48,8 +48,8 @@
       "apps": [
         {
           "package": "ru.instamart",
-          "version": "17.5.58",
-          "auditedAt": "2026-09-25"
+          "version": "17.6.47",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -60,7 +60,17 @@
         "api.cdek.ru",
         "cdek.ru",
         "lk.cdek.ru",
+        "mobileapp-cdn.cdek.ru",
+        "public-static.cdek.ru",
+        "sso.cdek.ru",
         "www.cdek.ru"
+      ],
+      "apps": [
+        {
+          "package": "com.logistic.sdek",
+          "version": "5.16.0",
+          "auditedAt": "2026-10-15"
+        }
       ]
     }
   ]

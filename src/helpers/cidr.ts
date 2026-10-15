@@ -441,6 +441,36 @@ export const splitByFamily = (
 };
 
 /**
+ * Самый узкий префикс из списка, содержащий адрес, но не шире заданной длины
+ */
+export const nodePrefix = (
+  ip: string,
+  prefixes: readonly string[],
+  maxWidth: Readonly<Record<IpFamily, number>>,
+): string | null => {
+  const parsed = ipToBigInt(ip);
+
+  if (!parsed) return null;
+
+  let best: ICidr | null = null;
+
+  for (const raw of prefixes) {
+    const cidr = parseCidr(raw);
+
+    if (!cidr || cidr.family !== parsed.family) continue;
+    if (cidr.start > parsed.value || cidr.end < parsed.value) continue;
+    if (!best || cidr.prefix > best.prefix) best = cidr;
+  }
+
+  if (!best) return null;
+
+  // Широкий анонс сужаем до подсети вокруг адреса
+  const prefix = Math.max(best.prefix, maxWidth[parsed.family]);
+
+  return normalizeCidr(`${ip}/${prefix}`);
+};
+
+/**
  * Индекс для быстрой проверки вхождения адреса
  */
 export class CidrIndex {

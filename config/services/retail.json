@@ -23,7 +23,6 @@
         "files.perekrestok.ru",
         "gp.x5.ru",
         "gw-cmdm.x5.ru",
-        "gw-el5.x5.ru",
         "gw-fb5.x5.ru",
         "gw-tsx.x5.ru",
         "homepage.5ka.ru",
@@ -90,8 +89,8 @@
       "apps": [
         {
           "package": "ru.tander.magnit",
-          "version": "8.122.0",
-          "auditedAt": "2026-09-25"
+          "version": "8.124.0",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -110,9 +109,21 @@
       "tier": "standard",
       "domains": [
         "api.vkusvill.ru",
+        "cdn-mobile-backend.vkusvill.ru",
+        "cdn1-img.vkusvill.ru",
+        "cdn1-mobile-backend.vkusvill.ru",
+        "img.vkusvill.ru",
+        "mobile-longpoll.vkusvill.ru",
         "mobile.vkusvill.ru",
         "vkusvill.ru",
         "www.vkusvill.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.vkusvill",
+          "version": "26.18.3",
+          "auditedAt": "2026-10-15"
+        }
       ]
     },
     {
@@ -163,10 +174,20 @@
       "domains": [
         "api.mvideo.ru",
         "eldorado.ru",
+        "mapp-appl.mvideo.ru",
+        "mapp-appl2.mvideo.ru",
+        "mapp-bff-aggregator.mvideo.ru",
         "mvideo.ru",
         "static.mvideo.ru",
         "www.eldorado.ru",
         "www.mvideo.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.filit.mvideo.b2c",
+          "version": "3.134.0-alt",
+          "auditedAt": "2026-10-15"
+        }
       ]
     }
   ]

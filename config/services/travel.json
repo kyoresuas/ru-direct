@@ -28,6 +28,7 @@
       "domains": [
         "api-an.tutu.ru",
         "api-bus.tutu.ru",
+        "api-x.tutu.ru",
         "app-train-gateway.tutu.ru",
         "auth.tutu.ru",
         "avia-api.tutu.ru",

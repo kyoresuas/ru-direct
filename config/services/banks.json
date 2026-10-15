@@ -111,8 +111,8 @@
       "apps": [
         {
           "package": "ru.sberbankmobile",
-          "version": "17.12.0",
-          "auditedAt": "2026-09-25"
+          "version": "17.13.0",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -157,16 +157,21 @@
         "id.tinkoff.ru",
         "loyalty-api.t-bank-app.ru",
         "mb-main-bff.t-bank-app.ru",
+        "mobile-bank-cdn-fb.tinkoff.ru",
         "mobile-bank.cdn-tinkoff.ru",
         "mobile-core-prod.cdn-tinkoff.ru",
         "operations.t-bank-app.ru",
+        "preidentity.tbank-online.com",
         "push-history-api.t-bank-app.ru",
         "search.t-bank-app.ru",
+        "secrets.tbank.ru",
         "secured-openapi.tbank.ru",
+        "si.t-bank-app.ru",
         "static.tinkoff.ru",
         "t-bank-app.ru",
         "tapi.t-bank-app.ru",
         "tbank.ru",
+        "time.tinkoff.ru",
         "tinkoff.ru",
         "tpay.t-bank-app.ru",
         "webview.t-bank-app.ru",
@@ -176,8 +181,8 @@
       "apps": [
         {
           "package": "com.idamob.tinkoff.android",
-          "version": "8.1.0",
-          "auditedAt": "2026-08-27"
+          "version": "8.4.2",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -210,7 +215,9 @@
         "android-mb.vtb.ru",
         "async-online4.vtb.ru",
         "chat1.vtb.ru",
+        "h.vtb.ru",
         "headless-cms.vtb.ru",
+        "kdelu.vtb.ru",
         "online.vtb.ru",
         "prod-digr-mtls.vtb.ru",
         "push.vtb.ru",
@@ -224,8 +231,8 @@
       "apps": [
         {
           "package": "ru.vtb24.mobilebanking.android",
-          "version": "20.15.1.3",
-          "auditedAt": "2026-08-27"
+          "version": "20.18.1.3",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -252,6 +259,7 @@
         "alfabank.ru",
         "anketa.alfabank.ru",
         "click.alfabank.ru",
+        "fevent.alfabank.ru",
         "mobile.auth.alfabank.ru",
         "online.alfabank.ru",
         "private.auth.alfabank.ru",
@@ -261,8 +269,8 @@
       "apps": [
         {
           "package": "ru.alfabank.mobile.android",
-          "version": "12.58.03",
-          "auditedAt": "2026-08-27"
+          "version": "12.61.05",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -294,11 +302,13 @@
         "gpb.ru",
         "gpbmobile.ru",
         "ib.online.gpb.ru",
+        "k-accounts.gazprombank.ru",
         "mob.cdn.gpb.ru",
         "online.gpb.ru",
         "onlineapi.gpb.ru",
         "p2p.online.gpb.ru",
         "rates.online.gpb.ru",
+        "s.gazprombank.ru",
         "static.online.gpb.ru",
         "web.online.gpb.ru",
         "www.gazprombank.ru"
@@ -306,8 +316,8 @@
       "apps": [
         {
           "package": "ru.gazprombank.android.mobilebank.app",
-          "version": "6.4.2",
-          "auditedAt": "2026-08-27"
+          "version": "6.5.2",
+          "auditedAt": "2026-10-15"
         }
       ]
     },

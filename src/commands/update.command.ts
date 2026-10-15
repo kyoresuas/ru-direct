@@ -42,7 +42,8 @@ export const runUpdate = async (
 
   appLogger.info(`Категорий: ${categories.length}, сервисов: ${services}`);
 
-  const guard = new GuardService(config.loadGuard(), ripe, cache);
+  const guardConfig = config.loadGuard();
+  const guard = new GuardService(guardConfig, ripe, cache);
 
   if (!appConfig.OFFLINE && !options.skipAsnCheck) {
     const asnErrors = await guard.verifyAsns(categories);
@@ -60,6 +61,7 @@ export const runUpdate = async (
     ripe,
     guard,
     zones,
+    cdnAsns: guardConfig.cdnAsns.map((entry) => entry.asn),
     exclude: config.loadExclude(),
     categories,
   });

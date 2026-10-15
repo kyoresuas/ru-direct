@@ -5,6 +5,7 @@ import {
   CidrIndex,
   parseCidr,
   bigIntToIp,
+  nodePrefix,
   splitByFamily,
   countIntersecting,
 } from "@/helpers/cidr";
@@ -24,6 +25,7 @@ import { GuardService } from "@/services/guard";
 import { ZonesService } from "@/services/zones";
 import { Tier, IpFamily } from "@/types/shared";
 import { formatNumber } from "@/utils/primitive";
+import { BuildContract } from "@/contracts/build";
 import { TiersContract } from "@/contracts/tiers";
 import { SourcesContract } from "@/contracts/sources";
 import { IService, IExcludeEntry, IServiceCategory } from "@/types/config";
@@ -36,6 +38,7 @@ export class BuildService {
   private readonly ripe: RipeService;
   private readonly guard: GuardService;
   private readonly zones: ZonesService;
+  private readonly cdnAsns: number[];
   private readonly exclude: IExcludeEntry[];
   private readonly categories: IServiceCategory[];
 
@@ -47,6 +50,7 @@ export class BuildService {
     this.ripe = deps.ripe;
     this.guard = deps.guard;
     this.zones = deps.zones;
+    this.cdnAsns = deps.cdnAsns;
     this.exclude = deps.exclude;
     this.categories = deps.categories;
   }
@@ -108,12 +112,28 @@ export class BuildService {
   }
 
   /**
+   * Анонсируемые префиксы российских CDN, которые ротируют адреса
+   */
+  private async loadCdnPrefixes(): Promise<string[]> {
+    const prefixes: string[] = [];
+
+    for (const asn of this.cdnAsns) {
+      const announced = await this.ripe.getAnnouncedPrefixes(asn);
+
+      prefixes.push(...announced.ipv4, ...announced.ipv6);
+    }
+
+    return prefixes;
+  }
+
+  /**
    * Собрать подсети одного сервиса
    */
   private async resolveService(
     category: IServiceCategory,
     service: IService,
     zoneIndex: CidrIndex,
+    cdnPrefixes: readonly string[],
   ): Promise<IServiceRoutes> {
     const asnPrefixes = await this.loadAsnPrefixes(service, zoneIndex);
     const ownIndex = new CidrIndex(asnPrefixes);
@@ -122,6 +142,7 @@ export class BuildService {
     const domainIps = new Map<string, string[]>();
     const foreign: string[] = [];
     let exact = 0;
+    let nodes = 0;
     let silent = 0;
 
     for (const item of resolved) {
@@ -138,15 +159,23 @@ export class BuildService {
         if (ownIndex.has(ip)) continue;
 
         const parsed = parseCidr(ip)!;
-        const exactCidr = `${ip}/${parsed.family === IpFamily.V4 ? 32 : 128}`;
+        const node = nodePrefix(
+          ip,
+          cdnPrefixes,
+          BuildContract.CDN_NODE_PREFIX,
+        );
+        const cidr =
+          node ?? `${ip}/${parsed.family === IpFamily.V4 ? 32 : 128}`;
 
-        if (!(await this.isRussian(zoneIndex, exactCidr))) {
+        if (!(await this.isRussian(zoneIndex, cidr))) {
           foreign.push(`${item.domain} ${ip}`);
           continue;
         }
 
-        cidrs.add(exactCidr);
-        exact++;
+        cidrs.add(cidr);
+
+        if (node) nodes++;
+        else exact++;
       }
     }
 
@@ -171,7 +200,7 @@ export class BuildService {
     const { ipv4, ipv6 } = splitByFamily([...cidrs]);
 
     appLogger.info(
-      `${service.name}: ${service.domains.length} доменов, ${asnPrefixes.length} префиксов ASN, ${exact} точных адресов, итого ${ipv4.length} IPv4 и ${ipv6.length} IPv6`,
+      `${service.name}: ${service.domains.length} доменов, ${asnPrefixes.length} префиксов ASN, ${exact} точных адресов, ${nodes} подсетей CDN, итого ${ipv4.length} IPv4 и ${ipv6.length} IPv6`,
     );
 
     return {
@@ -232,9 +261,10 @@ export class BuildService {
 
     const guardCidrs = await this.guard.loadCidrs();
     const removals = [...guardCidrs, ...this.exclude.map((e) => e.cidr)];
+    const cdnPrefixes = await this.loadCdnPrefixes();
 
     appLogger.info(
-      `Guard: ${formatNumber(guardCidrs.length)} подсетей, исключений: ${this.exclude.length}`,
+      `Guard: ${formatNumber(guardCidrs.length)} подсетей, исключений: ${this.exclude.length}, префиксов CDN: ${formatNumber(cdnPrefixes.length)}`,
     );
 
     appLogger.step("Сервисы");
@@ -243,7 +273,9 @@ export class BuildService {
 
     for (const category of this.categories) {
       for (const service of category.services) {
-        tasks.push(() => this.resolveService(category, service, zoneIndex));
+        tasks.push(() =>
+          this.resolveService(category, service, zoneIndex, cdnPrefixes),
+        );
       }
     }
 

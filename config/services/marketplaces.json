@@ -112,7 +112,6 @@
         "analytics.wildberries.ru",
         "antibot.wildberries.ru",
         "api-android.wildberries.ru",
-        "api-stories.wildberries.ru",
         "api.wbpay.ru",
         "api.wibes.ru",
         "apps-config-bank.wildberries.ru",
@@ -261,14 +260,21 @@
       "apps": [
         {
           "package": "com.wildberries.ru",
-          "version": "7.8.1002-rustore",
-          "auditedAt": "2026-09-25"
+          "version": "7.8.4001-rustore",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
     {
       "name": "Lamoda",
       "tier": "standard",
+      "asns": [
+        {
+          "asn": 57906,
+          "name": "Lamoda",
+          "holder": "Kupishoes"
+        }
+      ],
       "domains": [
         "a.lmcdn.ru",
         "api.lamoda.ru",
@@ -286,8 +292,8 @@
       "apps": [
         {
           "package": "com.lamoda.lite",
-          "version": "5.42.0",
-          "auditedAt": "2026-09-25"
+          "version": "5.46.0",
+          "auditedAt": "2026-10-15"
         }
       ]
     },
@@ -295,9 +301,18 @@
       "name": "Мегамаркет",
       "tier": "standard",
       "domains": [
+        "main-cdn.megamarket.ru",
         "main-cdn.sbermegamarket.ru",
         "megamarket.ru",
+        "mgate-grpc.megamarket.ru",
         "www.megamarket.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.megamarket.marketplace",
+          "version": "6.9",
+          "auditedAt": "2026-10-15"
+        }
       ]
     },
     {
