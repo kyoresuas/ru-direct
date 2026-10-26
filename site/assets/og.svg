@@ -1,8 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0f172a"/>
-  <rect x="60" y="60" width="1080" height="510" rx="28" fill="#111c34" stroke="#1f2d4d" stroke-width="2"/>
-  <text x="110" y="220" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="88" font-weight="700" fill="#f8fafc">RU Direct</text>
-  <text x="110" y="300" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="40" fill="#94a3b8">Российские сайты напрямую, остальное через VPN</text>
-  <text x="110" y="420" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="30" fill="#5eead4">AmneziaVPN · WireGuard · sing-box · Xray · Clash · MikroTik · Keenetic · OpenWrt</text>
-  <text x="110" y="500" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="28" fill="#64748b">Обновляется каждый день · MIT · без рекламы</text>
+  <rect x="40" y="40" width="1120" height="550" rx="28" fill="#111c34" stroke="#1f2d4d" stroke-width="2"/>
+  <text x="90" y="160" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="92" font-weight="700" fill="#f8fafc">RU Direct</text>
+  <text x="90" y="222" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="36" fill="#94a3b8">Списки российских сайтов для раздельного туннелирования</text>
+
+  <rect x="90" y="270" width="640" height="82" rx="16" fill="#134e4a" stroke="#2dd4bf" stroke-width="2"/>
+  <text x="120" y="323" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="30" font-weight="600" fill="#ccfbf1">Банки · Госуслуги · Ozon · Яндекс · VK</text>
+  <path d="M750 311h110M846 297l14 14-14 14" fill="none" stroke="#2dd4bf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="885" y="323" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="40" font-weight="700" fill="#5eead4">напрямую</text>
+
+  <rect x="90" y="378" width="640" height="82" rx="16" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+  <text x="120" y="431" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="30" font-weight="600" fill="#cbd5e1">Весь остальной интернет</text>
+  <path d="M750 419h110M846 405l14 14-14 14" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="885" y="431" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="40" font-weight="700" fill="#94a3b8">через VPN</text>
+
+  <text x="90" y="518" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="28" fill="#5eead4">AmneziaVPN · WireGuard · sing-box · Xray · Clash · MikroTik · OpenWrt</text>
+  <text x="90" y="560" font-family="-apple-system, Segoe UI, Roboto, sans-serif" font-size="26" fill="#64748b">3 уровня · 27 форматов · обновление каждый день · MIT · без рекламы</text>
 </svg>

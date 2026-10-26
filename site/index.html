@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RU Direct: списки для раздельного туннелирования</title>
+    <title>RU Direct: списки российских IP и доменов для раздельного туннелирования</title>
     <meta
       name="description"
       content="Готовые списки российских подсетей и доменов для split tunneling. Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK работают напрямую, остальное через VPN. AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic, OpenWrt. Обновляется каждый день."
@@ -37,8 +37,16 @@
     />
     <meta
       property="og:image"
-      content="https://kyoresuas.github.io/ru-direct/assets/og.svg"
+      content="https://kyoresuas.github.io/ru-direct/assets/og.png"
     />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="RU Direct: банки, Госуслуги, Ozon и Яндекс напрямую, остальное через VPN"
+    />
+    <meta property="og:site_name" content="RU Direct" />
     <meta property="og:locale" content="ru_RU" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -48,6 +56,14 @@
     <meta
       name="twitter:description"
       content="Российские сайты напрямую, остальное через VPN. AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic, OpenWrt."
+    />
+    <meta
+      name="twitter:image"
+      content="https://kyoresuas.github.io/ru-direct/assets/og.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="RU Direct: банки, Госуслуги, Ozon и Яндекс напрямую, остальное через VPN"
     />
     <meta
       name="robots"
@@ -138,6 +154,53 @@
             "programmingLanguage": "TypeScript",
             "runtimePlatform": "Node.js >= 22",
             "license": "https://opensource.org/license/mit"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kyoresuas.github.io/ru-direct/#website",
+            "name": "RU Direct",
+            "url": "https://kyoresuas.github.io/ru-direct/",
+            "inLanguage": "ru",
+            "description": "Российские сайты напрямую, остальное через VPN. Списки подсетей и доменов для раздельного туннелирования в 27 форматах."
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://kyoresuas.github.io/ru-direct/#faq",
+            "inLanguage": "ru",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Какой уровень выбрать?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Lite подходит для банков, платежей, госуслуг и соцсетей, до 500 подсетей, работает в любом клиенте. Standard добавляет маркетплейсы, Яндекс, доставку и стриминги, до 2000 подсетей. Full содержит всю российскую зону и нужен только роутерам и десктопам."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Почему приложение всё равно просит выключить VPN?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Список убирает серверную проверку по IP, но приложения Ozon, Wildberries и банков на Android ещё смотрят на tun-интерфейс на самом устройстве. Помогает VPN на роутере, рабочий профиль Android или раздельное туннелирование по приложениям в AmneziaVPN."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Чем RU Direct отличается от allow-domains и russia-v2ray-rules-dat?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Эти проекты в основном ведут списки заблокированных ресурсов: они идут в VPN, остальное напрямую. RU Direct решает обратную задачу: VPN включён для всего трафика, а российские сервисы идут напрямую. Новые блокировки не требуют обновления списка."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Как часто обновляются списки?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Каждый день около 06:00 по Москве. Имена файлов одинаковые во всех источниках и не меняются, поэтому ссылку можно подставить в правила sing-box или Clash."
+                }
+              }
+            ]
           }
         ]
       }
@@ -161,6 +224,17 @@
       <section aria-labelledby="client-title">
         <h2 id="client-title">Клиент</h2>
         <div class="options" id="clients" role="radiogroup" aria-labelledby="client-title"></div>
+        <noscript>
+          <p class="hint">
+            Для выбора клиента нужен JavaScript. Без него доступны
+            <a href="https://github.com/kyoresuas/ru-direct/releases/latest">все файлы последнего релиза</a>,
+            для AmneziaVPN
+            <a href="https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-lite.amnezia.json">ru-lite.amnezia.json</a>,
+            <a href="https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-standard.amnezia.json">ru-standard.amnezia.json</a>
+            и
+            <a href="https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-full.amnezia.json">ru-full.amnezia.json</a>.
+          </p>
+        </noscript>
       </section>
 
       <section aria-labelledby="tier-title">
@@ -170,6 +244,98 @@
       </section>
 
       <section class="result" id="result" aria-live="polite"></section>
+
+      <section id="check" aria-labelledby="check-title">
+        <h2 id="check-title">Проверить адрес</h2>
+        <form class="check" id="check-form">
+          <input
+            id="check-input"
+            type="text"
+            inputmode="url"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="ozon.ru или 185.73.193.68"
+            aria-label="Домен или адрес IPv4"
+            required
+          />
+          <button class="btn primary" type="submit">Проверить</button>
+        </form>
+        <p class="hint">
+          Узнайте, пойдёт ли сайт напрямую. Домен определяется через
+          DNS-over-HTTPS Cloudflare и может отличаться от ответа вашего
+          провайдера, подсети сравниваются в браузере по последней сборке.
+          Проверяются IPv4-списки.
+        </p>
+        <div id="check-result" aria-live="polite"></div>
+      </section>
+
+      <section aria-labelledby="about-title">
+        <h2 id="about-title">Как это работает</h2>
+        <p>
+          Адреса из списка идут напрямую, мимо VPN, всё остальное остаётся в
+          туннеле. Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK видят ваш
+          домашний адрес и не блокируют вход, а трафик к российским сервисам не
+          расходует VPN. Списки собираются каждый день из данных RIPE, DNS и
+          аудита приложений RuStore, чужие CDN вычитаются.
+        </p>
+      </section>
+
+      <section aria-labelledby="faq-title">
+        <h2 id="faq-title">Вопросы</h2>
+        <details>
+          <summary>Какой уровень выбрать?</summary>
+          <p>
+            Lite подходит для банков, платежей, госуслуг и соцсетей, до 500
+            подсетей, работает в любом клиенте. Standard добавляет маркетплейсы,
+            Яндекс, доставку и стриминги, до 2000 подсетей. Full содержит всю
+            российскую зону и нужен только роутерам и десктопам.
+          </p>
+        </details>
+        <details>
+          <summary>Почему приложение всё равно просит выключить VPN?</summary>
+          <p>
+            Список убирает серверную проверку по IP, но приложения Ozon,
+            Wildberries и банков на Android ещё смотрят на tun-интерфейс на
+            самом устройстве. Помогает VPN на роутере, рабочий профиль Android
+            или раздельное туннелирование по приложениям в AmneziaVPN.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Чем RU Direct отличается от allow-domains и russia-v2ray-rules-dat?
+          </summary>
+          <p>
+            Эти проекты в основном ведут списки заблокированных ресурсов: они
+            идут в VPN, остальное напрямую. RU Direct решает обратную задачу:
+            VPN включён для всего трафика, а российские сервисы идут напрямую.
+            Новые блокировки не требуют обновления списка.
+          </p>
+        </details>
+        <details>
+          <summary>Как часто обновляются списки?</summary>
+          <p>
+            Каждый день около 06:00 по Москве. Имена файлов одинаковые во всех
+            источниках и не меняются, поэтому ссылку можно подставить в правила
+            sing-box или Clash.
+          </p>
+        </details>
+      </section>
+
+      <footer class="foot">
+        <p>
+          Открытый код под MIT, без рекламы. Если списки помогли, поставьте
+          звезду на GitHub: так проект проще найти другим.
+        </p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/kyoresuas/ru-direct">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.02l-5.88 3.09 1.12-6.55L2.48 8.92l6.58-.96L12 2Z" />
+            </svg>
+            Поставить звезду
+          </a>
+          <a class="btn" href="https://github.com/kyoresuas/ru-direct/issues/new/choose">Сообщить о проблеме</a>
+        </div>
+      </footer>
     </main>
 
     <script src="assets/app.js" defer></script>

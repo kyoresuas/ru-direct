@@ -14,6 +14,7 @@ import { Tier } from "@/types/shared";
 import { fetchText } from "@/helpers/http";
 import { parseLines } from "@/utils/files";
 import { appLogger } from "@/config/logger";
+import { FormatId } from "@/types/formats";
 import { IBuildResult } from "@/types/build";
 import appConfig from "@/constants/appConfig";
 import { formatNumber } from "@/utils/primitive";
@@ -198,6 +199,11 @@ export class ManifestService {
         `| ${t.id} | ${formatNumber(t.ipv4)} | ${formatNumber(t.ipv6)} | ${formatNumber(t.domains)} | +${t.diff.added} / -${t.diff.removed} |`,
     );
 
+    const amnezia = Object.values(manifest.tiers)
+      .flatMap((t) => t.files)
+      .filter((f) => f.format === FormatId.AMNEZIA)
+      .map((f) => `[${f.name}](${RepositoryContract.releaseUrl(f.name)})`);
+
     return [
       `Автоматическое обновление списков от ${date}.`,
       "",
@@ -205,9 +211,14 @@ export class ManifestService {
       "| --- | ---: | ---: | ---: | --- |",
       ...rows,
       "",
-      `Все форматы, инструкции и проверка адреса: ${RepositoryContract.SITE_URL}`,
+      `Для AmneziaVPN: ${amnezia.join(", ")}. Если сомневаетесь, берите ${TiersContract[Tier.LITE].id}.`,
+      "",
+      `- Другие клиенты и выбор уровня: ${RepositoryContract.SITE_URL}`,
+      `- Проверить, входит ли сайт в список: ${RepositoryContract.SITE_URL}#check`,
       "",
       `Контрольные суммы в \`${CHECKSUMS_FILE}\`, описание файлов в \`${MANIFEST_FILE}\`.`,
+      "",
+      `Списки помогли? Поставьте звезду проекту: ${RepositoryContract.URL}`,
       "",
     ].join("\n");
   }

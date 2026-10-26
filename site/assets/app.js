@@ -16,6 +16,21 @@
   const cdnUrl = (file) =>
     `https://cdn.jsdelivr.net/gh/${REPO}@release/${file}`;
 
+  /**
+   * Ссылка на файл ветки release, запасной источник
+   */
+  const rawUrl = (file) =>
+    `https://raw.githubusercontent.com/${REPO}/release/${file}`;
+
+  // Резолверы DNS-over-HTTPS для проверки домена
+  const DOH = [
+    "https://cloudflare-dns.com/dns-query",
+    "https://dns.google/resolve",
+  ];
+
+  // Сколько адресов домена показывать в проверке
+  const CHECK_LIMIT = 6;
+
   // Уровни списков, зеркало src/contracts/tiers
   const TIERS = [
     {
@@ -429,7 +444,180 @@
     }
   };
 
+  // Кэш подсетей уровней для проверки адреса
+  const ranges = new Map();
+
+  /**
+   * IPv4 в число, для неверного адреса null
+   */
+  const ip4ToInt = (ip) => {
+    const parts = ip.split(".");
+
+    if (parts.length !== 4) return null;
+
+    let value = 0;
+
+    for (const part of parts) {
+      if (!/^\d{1,3}$/.test(part) || Number(part) > 255) return null;
+
+      value = value * 256 + Number(part);
+    }
+
+    return value;
+  };
+
+  /**
+   * Загрузить и разобрать подсети уровня из последней сборки
+   */
+  const loadRanges = async (tier) => {
+    if (ranges.has(tier)) return ranges.get(tier);
+
+    let text = null;
+
+    for (const url of [cdnUrl, rawUrl]) {
+      try {
+        const res = await fetch(url(`${tier}.ipv4.txt`));
+
+        if (res.ok) {
+          text = await res.text();
+          break;
+        }
+      } catch {
+        //
+      }
+    }
+
+    if (text === null) throw new Error("список подсетей недоступен");
+
+    const list = [];
+
+    for (const line of text.split("\n")) {
+      const cidr = line.trim();
+      const [ip, prefix] = cidr.split("/");
+      const start = ip ? ip4ToInt(ip) : null;
+
+      if (start === null || prefix === undefined) continue;
+
+      list.push({ start, end: start + 2 ** (32 - Number(prefix)) - 1, cidr });
+    }
+
+    list.sort((a, b) => a.start - b.start);
+    ranges.set(tier, list);
+
+    return list;
+  };
+
+  /**
+   * Найти подсеть, в которую входит адрес, списки агрегированы и не пересекаются
+   */
+  const findRange = (list, value) => {
+    let low = 0;
+    let high = list.length - 1;
+    let found = null;
+
+    while (low <= high) {
+      const mid = (low + high) >> 1;
+
+      if (list[mid].start <= value) {
+        found = list[mid];
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+
+    return found && found.end >= value ? found.cidr : null;
+  };
+
+  /**
+   * Определить IPv4-адреса домена через DNS-over-HTTPS
+   */
+  const resolveDomain = async (domain) => {
+    for (const base of DOH) {
+      try {
+        const res = await fetch(
+          `${base}?name=${encodeURIComponent(domain)}&type=A`,
+          { headers: { accept: "application/dns-json" } },
+        );
+
+        if (!res.ok) continue;
+
+        const json = await res.json();
+
+        return (json.Answer || [])
+          .filter((answer) => answer.type === 1)
+          .map((answer) => answer.data);
+      } catch {
+        //
+      }
+    }
+
+    throw new Error("DNS недоступен, введите адрес IPv4");
+  };
+
+  /**
+   * Карточка с вхождением одного адреса в уровни
+   */
+  const verdictCard = async (ip) => {
+    const value = ip4ToInt(ip);
+    const table = el("table");
+
+    for (const tier of TIERS) {
+      const match = findRange(await loadRanges(tier.id), value);
+
+      table.append(
+        el("tr", {}, [
+          el("td", { text: tier.id }),
+          match
+            ? el("td", { class: "yes", text: `напрямую, ${match}` })
+            : el("td", { class: "no", text: "через VPN" }),
+        ]),
+      );
+    }
+
+    return el("div", { class: "verdict" }, [el("h3", { text: ip }), table]);
+  };
+
+  /**
+   * Обработать форму проверки адреса
+   */
+  const onCheck = async (event) => {
+    event.preventDefault();
+
+    const host = $("#check-input")
+      .value.trim()
+      .toLowerCase()
+      .replace(/^[a-z]+:\/\//, "")
+      .split(/[/?#]/)[0];
+    const box = $("#check-result");
+
+    box.replaceChildren(el("p", { class: "hint", text: "Проверяю…" }));
+
+    try {
+      if (host.split(":").length > 2)
+        throw new Error("IPv6 пока не проверяется");
+
+      const target = host.split(":")[0];
+      const ips =
+        ip4ToInt(target) !== null ? [target] : await resolveDomain(target);
+
+      if (ips.length === 0) throw new Error("у домена нет адресов IPv4");
+
+      const cards = [];
+
+      for (const ip of ips.slice(0, CHECK_LIMIT))
+        cards.push(await verdictCard(ip));
+
+      box.replaceChildren(...cards);
+    } catch (error) {
+      box.replaceChildren(
+        el("p", { class: "hint", text: `Не получилось: ${error.message}` }),
+      );
+    }
+  };
+
   restore();
   render();
   loadManifest();
+  $("#check-form").addEventListener("submit", onCheck);
 })();

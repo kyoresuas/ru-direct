@@ -11,10 +11,14 @@
 - Формат AmneziaVPN: JSON-массив объектов {"hostname": "<CIDR>", "ip": ""}. Только IPv4. Вариант с доменами добавляет {"hostname": "<domain>", "ips": [...]}.
 - Список закрывает серверную проверку по IP. Баннер «выключите VPN» в приложениях Ozon и Wildberries на Android вызван детектом tun-интерфейса на устройстве и списком не лечится.
 - Списки собираются автоматически из config/services, guard вычитает Cloudflare, AWS, Fastly, Google и другие чужие сети.
+- Подход обратный блок-листам (itdoginfo/allow-domains, runetfreedom/russia-v2ray-rules-dat): VPN включён для всего трафика, российские сервисы идут напрямую, новые блокировки не требуют обновления списка. Блок-листы ведут заблокированные ресурсы в VPN, остальное напрямую.
+- Обновление каждый день около 06:00 по Москве. Описание изменений за сутки в заметках последнего релиза.
+- Проверить, входит ли домен или IPv4-адрес в уровни, можно на странице https://kyoresuas.github.io/ru-direct/#check или командой npm run check -- <ip|домен>.
 
 ## Скачать
 
 - [Страница скачивания](https://kyoresuas.github.io/ru-direct/): выбор клиента и уровня, ссылки и инструкции
+- [Проверка адреса](https://kyoresuas.github.io/ru-direct/#check): входит ли домен или IPv4-адрес в уровни, считается в браузере
 - [ru-lite.amnezia.json](https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-lite.amnezia.json): рекомендуемый список для AmneziaVPN
 - [ru-standard.amnezia.json](https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-standard.amnezia.json): с маркетплейсами и Яндексом
 - [ru-full.amnezia.json](https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-full.amnezia.json): вся российская зона
@@ -23,7 +27,7 @@
 
 ## Документация
 
-- [README](https://raw.githubusercontent.com/kyoresuas/ru-direct/main/README.md): выбор уровня, импорт в AmneziaVPN, что список закрывает и что нет, FAQ
+- [README](https://raw.githubusercontent.com/kyoresuas/ru-direct/main/README.md): выбор уровня, импорт в AmneziaVPN, что список закрывает и что нет, сравнение с блок-листами, FAQ
 - [README на английском](https://raw.githubusercontent.com/kyoresuas/ru-direct/main/README_EN.md)
 - [AGENTS.md](https://raw.githubusercontent.com/kyoresuas/ru-direct/main/AGENTS.md): архитектура, команды, правила правки конфигов
 - [Split tunneling в документации Amnezia](https://docs.amnezia.org/ru/documentation/instructions/vpn-split-tunneling/)

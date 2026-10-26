@@ -1,12 +1,30 @@
 # RU Direct
 
-Ready-made lists of Russian networks and domains for VPN split tunneling. Banks, government services, Ozon, Wildberries, Yandex and VK go direct, everything else goes through the tunnel. Three tiers, 27 formats for AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic and OpenWrt. Rebuilt daily.
+Ready-made lists of Russian networks and domains for VPN split tunneling. Banks, government services, Ozon, Wildberries, Yandex and VK open directly without turning the VPN off, everything else goes through the tunnel. Three tiers, 27 formats for AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic and OpenWrt. Rebuilt daily, MIT, no ads.
+
+[![Stars](https://img.shields.io/github/stars/kyoresuas/ru-direct?style=flat&color=0f766e)](https://github.com/kyoresuas/ru-direct/stargazers)
+[![Lists](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml)
+[![CI](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml)
+[![jsDelivr](https://data.jsdelivr.com/v1/package/gh/kyoresuas/ru-direct/badge?style=rounded)](https://www.jsdelivr.com/package/gh/kyoresuas/ru-direct)
+[![License](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
 **English** · [Русский](README.md)
 
+```text
+Phone, computer or router
+├── banks, Gosuslugi, Ozon, Yandex, VK ──► direct, with your ISP address
+└── the rest of the internet ────────────► VPN server
+```
+
+<p align="center">
+  <a href="https://kyoresuas.github.io/ru-direct/"><img src="site/assets/preview.png" width="560" alt="RU Direct download page: pick a client and a tier"></a>
+</p>
+
+Did the lists save you time? Please star the project so more people can find it. The site and the interface hints are in Russian, the file names and formats are universal.
+
 ## Download
 
-**[Download page](https://kyoresuas.github.io/ru-direct/)**: pick a client and a tier, get a button, a subscription URL and import steps.
+**[Download page](https://kyoresuas.github.io/ru-direct/)**: pick a client and a tier, get a button, a subscription URL and import steps. The same page checks whether a given site goes direct.
 
 For AmneziaVPN right away:
 
@@ -61,6 +79,19 @@ The list makes a site or an API see your home address and keeps Russian traffic 
 
 It cannot remove on-device checks. Android apps of Ozon, Wildberries, Sber, 2GIS and others look for a tun interface and installed VPN clients and report the result to their servers. That is why the "turn off your VPN" banner can appear even with a perfect list. What helps: VPN on the router, an Android work profile with marketplaces outside the VPN, or app-based split tunneling in AmneziaVPN on Android. iOS has no app-based mode, so the list and disabled IPv6 are all you get.
 
+## How it differs from blocklists
+
+[itdoginfo/allow-domains](https://github.com/itdoginfo/allow-domains) and [runetfreedom/russia-v2ray-rules-dat](https://github.com/runetfreedom/russia-v2ray-rules-dat) mostly maintain lists of blocked resources: those go through the VPN, everything else goes direct. RU Direct solves the opposite problem: the VPN carries all traffic, and Russian services go direct.
+
+| | RU Direct | Blocklists |
+| --- | --- | --- |
+| What the list holds | Russian services and the country zone | Resources blocked in Russia |
+| What goes through the VPN | Everything not in the list | Only what is in the list |
+| A new block appears | Nothing to do, the site is already in the VPN | Wait for the list to be updated |
+| A resource is missing from the list | A Russian service opens through the VPN, a bank may refuse a foreign address | A blocked site does not open |
+
+If you need targeted circumvention without a VPN for all traffic, use blocklists. If you keep the VPN always on and want Russian services without turning it off, use RU Direct.
+
 ## FAQ
 
 ### Which tier should I pick?
@@ -77,11 +108,19 @@ AmneziaVPN is IPv4 only, so IPv6 traffic to Russian sites goes through the tunne
 
 ### A site still goes through the VPN
 
-Check the address locally with `npm run check -- example.ru`. If it is missing, open an [issue](https://github.com/kyoresuas/ru-direct/issues/new/choose) or send a pull request to `config/services`.
+Enter the domain on the [Check an address](https://kyoresuas.github.io/ru-direct/#check) page to see which tiers its addresses belong to, or run `npm run check -- example.ru` from a clone. If it is missing, open an [issue](https://github.com/kyoresuas/ru-direct/issues/new/choose) or send a pull request to `config/services`.
 
 ### Why are Cloudflare, AWS or hosting providers not included?
 
-Because those are not Russian services. A guard subtracts Cloudflare, AWS, Fastly, Google and other anycast networks from every tier, and hosting or anti-DDoS ASNs are rejected by config validation. Otherwise foreign sites would leak past the VPN, which has happened to other lists.
+Because those are not Russian services. A guard subtracts Cloudflare, AWS, Fastly, Google and other anycast networks from every tier, and hosting or anti-DDoS ASNs are rejected by config validation. Otherwise foreign sites would leak past the VPN.
+
+### How often are the lists updated?
+
+Every day around 06:00 Moscow time. File names never change, so the jsDelivr URL can go straight into a sing-box or Clash rule-set. Daily changes are listed in the [latest release](https://github.com/kyoresuas/ru-direct/releases/latest) notes.
+
+### Can I use the lists in my own project?
+
+Yes, the license is MIT. File names and URLs stay stable.
 
 ## How it is built
 
@@ -111,7 +150,8 @@ Node.js 22 or newer. CI runs lint, tests and config validation on Node.js 22 and
 
 ## Support the project
 
-- **Russian MIR card:** `2200700644781816`
+The easiest way is to star the repository and tell friends who set up a VPN. If the project helped, you can also support its development:
+
 - **TON:** `kyoresuas.ton`
 - **TON wallet address:** `UQATzyMcVoZudjaA5Rc9w5TV_lIqxh9DPk0gSnjkLVvwEVqz`
 - **USDT on TRON (TRC-20):** `TJSLjDo4yRgHr9JqqEcrkbC51bP9DCiBC7`

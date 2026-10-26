@@ -200,10 +200,105 @@ pre {
   font-size: 14px;
 }
 
+.btn svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  fill: currentColor;
+}
+
+.check {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.check input {
+  flex: 1 1 260px;
+  padding: 11px 14px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111111;
+  font: inherit;
+}
+
+.check input:hover {
+  border-color: #999999;
+}
+
+.check .btn.primary {
+  flex: 0 0 auto;
+}
+
+.verdict {
+  margin-top: 16px;
+}
+
+.verdict h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.verdict table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.verdict td {
+  padding: 5px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.verdict td:first-child {
+  width: 110px;
+  color: #666666;
+}
+
+.verdict .yes {
+  font-weight: 600;
+}
+
+.verdict .no {
+  color: #777777;
+}
+
+details {
+  padding: 12px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+details:last-of-type {
+  border-bottom: 1px solid #eeeeee;
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+details p {
+  margin: 8px 0 0;
+  color: #444444;
+}
+
+.foot {
+  padding-top: 24px;
+  border-top: 1px solid #eeeeee;
+}
+
+.foot p {
+  margin: 0 0 12px;
+  color: #666666;
+}
+
 .option:focus-visible,
 .segment:focus-visible,
 .btn:focus-visible,
-.repo:focus-visible {
+.repo:focus-visible,
+.check input:focus-visible,
+summary:focus-visible {
   outline: 2px solid #111111;
   outline-offset: 2px;
 }
@@ -217,7 +312,8 @@ pre {
     grid-template-columns: 1fr 1fr;
   }
 
-  .actions .btn {
+  .actions .btn,
+  .check .btn.primary {
     flex: 1 1 100%;
   }
 }

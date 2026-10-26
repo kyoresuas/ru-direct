@@ -1,7 +1,8 @@
 # RU Direct
 
-Готовые списки российских подсетей и доменов для раздельного туннелирования. Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK работают напрямую, весь остальной трафик идёт через VPN. Три уровня, 27 форматов для AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic и OpenWrt. Обновляется каждый день.
+Готовые списки российских подсетей и доменов для раздельного туннелирования (split tunneling). Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK открываются напрямую, без выключения VPN, весь остальной трафик идёт через туннель. Три уровня, 27 форматов для AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic и OpenWrt. Обновляется каждый день, MIT, без рекламы.
 
+[![Stars](https://img.shields.io/github/stars/kyoresuas/ru-direct?style=flat&color=0f766e)](https://github.com/kyoresuas/ru-direct/stargazers)
 [![Списки](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml)
 [![CI](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml)
 [![Lite](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkyoresuas%2Fru-direct%2Frelease%2Fmanifest.json&query=%24.tiers%5B%27ru-lite%27%5D.ipv4&label=ru-lite&suffix=%20CIDR&color=0f766e)](https://kyoresuas.github.io/ru-direct/)
@@ -12,9 +13,21 @@
 
 **Русский** · [English](README_EN.md)
 
+```text
+Телефон, компьютер или роутер
+├── банки, Госуслуги, Ozon, Яндекс, VK ──► напрямую, с адресом вашего провайдера
+└── весь остальной интернет ─────────────► VPN-сервер
+```
+
+<p align="center">
+  <a href="https://kyoresuas.github.io/ru-direct/"><img src="site/assets/preview.png" width="560" alt="Страница скачивания RU Direct: выбор клиента и уровня"></a>
+</p>
+
+Списки сэкономили вам время? Поставьте звезду проекту: так его проще найти другим.
+
 ## Скачать
 
-**[Страница скачивания](https://kyoresuas.github.io/ru-direct/)**: выбираете клиент и уровень, получаете кнопку, ссылку для подписки и инструкцию.
+**[Страница скачивания](https://kyoresuas.github.io/ru-direct/)**: выбираете клиент и уровень, получаете кнопку, ссылку для подписки и инструкцию. Там же можно проверить, пойдёт ли конкретный сайт напрямую.
 
 Если нужен файл для AmneziaVPN прямо сейчас:
 
@@ -78,6 +91,19 @@ https://raw.githubusercontent.com/kyoresuas/ru-direct/release/<файл>
 
 Подробнее про механику: [исследование RKS Global](https://rks.global/ru/research/vpn-detection/).
 
+## Чем отличается от блок-листов
+
+[itdoginfo/allow-domains](https://github.com/itdoginfo/allow-domains) и [runetfreedom/russia-v2ray-rules-dat](https://github.com/runetfreedom/russia-v2ray-rules-dat) в основном ведут списки заблокированных ресурсов: они идут в VPN, остальное напрямую. RU Direct решает обратную задачу: VPN включён для всего трафика, а российские сервисы идут напрямую.
+
+| | RU Direct | Блок-листы |
+| --- | --- | --- |
+| Что в списке | Российские сервисы и зона страны | Заблокированные в России ресурсы |
+| Что идёт через VPN | Всё, чего нет в списке | Только то, что есть в списке |
+| Новая блокировка | Ничего делать не нужно, сайт и так в VPN | Нужно дождаться обновления списка |
+| Ресурса нет в списке | Российский сервис откроется через VPN, банк может не пустить с иностранного адреса | Заблокированный сайт не откроется |
+
+Нужен точечный обход блокировок без VPN на весь трафик: берите блок-листы. Нужен всегда включённый VPN и российские сервисы без его отключения: берите RU Direct.
+
 ## Вопросы
 
 ### Какой уровень выбрать?
@@ -94,7 +120,7 @@ AmneziaVPN понимает только IPv4, и IPv6-трафик к росс�
 
 ### Сайт не открывается напрямую. Как добавить?
 
-Проверьте адрес локально:
+Введите домен на странице [Проверить адрес](https://kyoresuas.github.io/ru-direct/#check): она покажет, в какие уровни входят его адреса. То же локально из репозитория:
 
 ```bash
 npm run check -- ozon.ru
@@ -105,7 +131,15 @@ npm run check -- 185.73.193.68
 
 ### Почему в списке нет Cloudflare, AWS или Selectel целиком?
 
-Потому что это чужие сети. Guard вычитает Cloudflare, AWS, Fastly, Google и другие anycast-сети из каждого уровня, а хостинги и anti-DDoS запрещены как источники сервисов. Иначе через список мимо VPN пошли бы чужие сайты, как это случилось у некоторых конкурентов.
+Потому что это чужие сети. Guard вычитает Cloudflare, AWS, Fastly, Google и другие anycast-сети из каждого уровня, а хостинги и anti-DDoS запрещены как источники сервисов. Иначе через список мимо VPN пошли бы чужие сайты.
+
+### Как часто обновляются списки?
+
+Каждый день около 06:00 по Москве. Имена файлов не меняются, поэтому ссылку jsDelivr можно подставить в rule-set sing-box или Clash. Что изменилось за сутки, видно в описании [последнего релиза](https://github.com/kyoresuas/ru-direct/releases/latest).
+
+### Можно ли использовать списки в своём проекте?
+
+Да, лицензия MIT. Имена файлов и адреса остаются стабильными.
 
 ## Как собирается
 
@@ -143,7 +177,7 @@ Node.js 22 и новее. CI прогоняет lint, тесты и провер
 
 ## Поддержать проект
 
-Если проект оказался полезен, вы можете поддержать его развитие:
+Самое простое: поставьте звезду на GitHub и расскажите знакомым, которые настраивают VPN. Если проект оказался полезен, вы можете поддержать его развитие:
 
 - **TON:** `kyoresuas.ton`
 - **Адрес кошелька TON:** `UQATzyMcVoZudjaA5Rc9w5TV_lIqxh9DPk0gSnjkLVvwEVqz`
