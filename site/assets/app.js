@@ -238,7 +238,7 @@
   ].map((item) => ({ ...CLIENTS.find((client) => client.id === item.base), ...item })));
 
   // Выбор пользователя и загруженные данные
-  const state = { client: "amnezia", tier: "ru-lite", manifest: null, services: null, allClients: false };
+  const state = { client: "amnezia", tier: "ru-lite", manifest: null, services: null, allClients: false, selectionWarning: "", selectionHash: "" };
   const selected = new Set();
   const ranges = new Map();
   let checkRunning = false;
@@ -556,6 +556,51 @@
     if (!services.length) $("#selection-status").textContent = "Выберите сервисы";
     $("#custom-download").disabled = !cidrs.size;
     $("#selection-clear").hidden = !selected.size;
+    $("#custom-share button").disabled = !selected.size;
+  };
+
+  /** Ссылка с версией формата и выбранными сервисами, фрагмент не отправляется серверу */
+  const selectionUrl = () => {
+    const url = new URL(location.href);
+    url.search = "";
+    url.hash = "services?" + new URLSearchParams({
+      v: "1",
+      format: $("#custom-format").value,
+      services: JSON.stringify([...selected].sort()),
+    }).toString();
+    return url.href;
+  };
+
+  /** Восстановить персональный набор по текущему каталогу */
+  const restoreSelection = () => {
+    if (!location.hash.startsWith("#services?")) {
+      state.selectionHash = "";
+      return;
+    }
+    if (state.selectionHash === location.hash) return;
+    state.selectionHash = location.hash;
+    $("#service-search").value = "";
+    selected.clear();
+    state.selectionWarning = "";
+    try {
+      if (location.hash.length > 32768) throw new Error("Слишком длинная ссылка на набор");
+      const params = new URLSearchParams(location.hash.slice("#services?".length));
+      if (params.get("v") !== "1") throw new Error("Эта версия ссылки на набор не поддерживается");
+      const format = params.get("format");
+      if (!["amnezia", "ipv4", "ipv6"].includes(format)) throw new Error("В ссылке указан неизвестный формат");
+      const names = JSON.parse(params.get("services") || "null");
+      if (!Array.isArray(names) || names.length > 500 || names.some((name) => typeof name !== "string" || !name || name.length > 128)) throw new Error("Некорректный список сервисов в ссылке");
+      const available = new Set(state.services.categories.flatMap((category) => category.services.map((service) => service.name)));
+      const missing = new Set();
+      for (const name of names) {
+        if (available.has(name)) selected.add(name);
+        else missing.add(name);
+      }
+      $("#custom-format").value = format;
+      if (missing.size) state.selectionWarning = `Сервисы из ссылки отсутствуют в каталоге: ${[...missing].join(", ")}`;
+    } catch (error) {
+      state.selectionWarning = error.message;
+    }
   };
 
   /** Нарисовать каталог и флажки персонального списка */
@@ -581,13 +626,21 @@
       count += services.length;
       list.append(el("div", { class: "service-category" }, [el("h3", { text: category.title }), grid]));
     }
-    $("#service-status").textContent = query ? `Найдено: ${count}` : "Отметьте нужные сервисы. Персональный список обновляется вручную";
+    const hint = query ? `Найдено: ${count}` : "Отметьте нужные сервисы. Персональный список обновляется вручную";
+    $("#service-status").textContent = state.selectionWarning ? `${state.selectionWarning}. ${hint}` : hint;
     updateSelection();
   };
 
   /** Загрузить каталог при открытии, старый формат не использовать для экспорта */
   const loadServices = async () => {
-    if (state.services || $("#services-details").dataset.loading === "true") return;
+    if (state.services) {
+      if (!$("#builder-actions").hidden) {
+        restoreSelection();
+        renderServices();
+      }
+      return;
+    }
+    if ($("#services-details").dataset.loading === "true") return;
     const status = $("#service-status");
     $("#services-details").dataset.loading = "true";
     status.textContent = "Загружаем сервисы…";
@@ -604,6 +657,7 @@
         for (const category of data.categories) $("#service-list").append(el("p", { class: "hint", text: `${category.title}: ${category.services.map((service) => service.name).join(", ")}` }));
         return;
       }
+      restoreSelection();
       renderServices();
     } catch {
       status.replaceChildren(document.createTextNode("Каталог недоступен. "));
@@ -640,6 +694,8 @@
   };
 
   restore();
+  $("#custom-share").append(copyButton("Сохранить набор ссылкой", selectionUrl, "text-button"));
+  $("#custom-share button").disabled = true;
   render();
   loadManifest();
   $("#client-search").addEventListener("input", filterClients);
@@ -656,8 +712,8 @@
       $(custom ? "#custom-tab" : "#preset-tab").focus();
     });
   }
-  setMode(location.hash === "#services");
-  addEventListener("hashchange", () => { if (location.hash === "#services") setMode(true); });
+  setMode(location.hash === "#services" || location.hash.startsWith("#services?"));
+  addEventListener("hashchange", () => { if (location.hash === "#services" || location.hash.startsWith("#services?")) setMode(true); });
   $("#service-search").addEventListener("input", () => { if (state.services && !$("#builder-actions").hidden) renderServices(); });
   $("#custom-format").addEventListener("change", updateSelection);
   $("#custom-download").addEventListener("click", downloadCustom);

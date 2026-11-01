@@ -1,33 +1,26 @@
-# RU Direct
+# rudirect
 
-Готовые списки российских подсетей и доменов для раздельного туннелирования (split tunneling). Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK открываются напрямую, без выключения VPN, весь остальной трафик идёт через туннель. Три уровня, 27 форматов для AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic и OpenWrt. Обновляется каждый день, MIT, без рекламы.
+Российские сервисы идут через ваше обычное подключение, остальной трафик — через VPN. Скачайте готовый список или соберите свой из нужных сервисов.
 
 [![Stars](https://img.shields.io/github/stars/kyoresuas/ru-direct?style=flat&color=0f766e)](https://github.com/kyoresuas/ru-direct/stargazers)
 [![Списки](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml)
 [![CI](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml)
-[![Lite](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkyoresuas%2Fru-direct%2Frelease%2Fmanifest.json&query=%24.tiers%5B%27ru-lite%27%5D.ipv4&label=ru-lite&suffix=%20CIDR&color=0f766e)](https://kyoresuas.github.io/ru-direct/)
-[![Standard](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkyoresuas%2Fru-direct%2Frelease%2Fmanifest.json&query=%24.tiers%5B%27ru-standard%27%5D.ipv4&label=ru-standard&suffix=%20CIDR&color=0f766e)](https://kyoresuas.github.io/ru-direct/)
-[![Full](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkyoresuas%2Fru-direct%2Frelease%2Fmanifest.json&query=%24.tiers%5B%27ru-full%27%5D.ipv4&label=ru-full&suffix=%20CIDR&color=0f766e)](https://kyoresuas.github.io/ru-direct/)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/gh/kyoresuas/ru-direct/badge?style=rounded)](https://www.jsdelivr.com/package/gh/kyoresuas/ru-direct)
 [![License](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
-**Русский** · [English](README_EN.md)
-
-```text
-Телефон, компьютер или роутер
-├── банки, Госуслуги, Ozon, Яндекс, VK ──► напрямую, с адресом вашего провайдера
-└── весь остальной интернет ─────────────► VPN-сервер
-```
+**[Скачать готовый список](https://kyoresuas.github.io/ru-direct/#setup)** · **[Собрать свой список](https://kyoresuas.github.io/ru-direct/#services)**
 
 <p align="center">
-  <a href="https://kyoresuas.github.io/ru-direct/"><img src="site/assets/preview.png" width="560" alt="Страница скачивания RU Direct: выбор клиента и уровня"></a>
+  <a href="https://kyoresuas.github.io/ru-direct/#services"><img src="site/assets/preview.png" width="800" alt="Конструктор rudirect: четыре выбранных сервиса и кнопка скачивания для AmneziaVPN"></a>
 </p>
 
-Списки сэкономили вам время? Поставьте звезду проекту: так его проще найти другим.
+90 сервисов, три готовых уровня и 27 форматов. Конструктор выгружает JSON для AmneziaVPN и текстовые списки IPv4/IPv6. Сохраните набор ссылкой, чтобы позже открыть его со свежими данными или отправить знакомому. Скачанный персональный файл нужно импортировать в клиент вручную.
+
+**Русский** · [English](README_EN.md) · [Проверка совместимости](#проверка-совместимости) · [Как помочь](CONTRIBUTING.md)
 
 ## Скачать
 
-**[Страница скачивания](https://kyoresuas.github.io/ru-direct/)**: выбираете клиент и уровень, получаете кнопку, ссылку для подписки и инструкцию. Там же можно проверить, пойдёт ли конкретный сайт напрямую.
+**[Страница скачивания](https://kyoresuas.github.io/ru-direct/#setup)**: выберите клиент и уровень. Для персонального набора откройте «Свой список», отметьте сервисы и выберите формат. Проверка адреса сравнивает IPv4 и IPv6 с готовыми IP-списками; она не проверяет ваше VPN-подключение.
 
 Если нужен файл для AmneziaVPN прямо сейчас:
 
@@ -65,6 +58,28 @@ https://raw.githubusercontent.com/kyoresuas/ru-direct/release/<файл>
 | Просто списки | `<уровень>.ipv4.txt`, `<уровень>.ipv6.txt`, `<уровень>.domains.txt` |
 
 Уровень это `ru-lite`, `ru-standard` или `ru-full`. В `geoip.dat` и `geosite.dat` все три уровня лежат тегами `geoip:ru-lite`, `geosite:ru-standard` и так далее.
+
+## Проверка совместимости
+
+Проверено 2 ноября 2026 года: 26 вариантов клиента на сайте во всех трёх уровнях, соответствие ссылок собранным файлам, проверка IPv4/IPv6 и персональный экспорт. Проверки выполнены в браузере и на сгенерированных файлах. Версии VPN-клиентов, ОС, нативный импорт и маршрутизация на настоящих устройствах ещё требуют проверки.
+
+| Клиент | Файлы | Сайт и файлы | Импорт в приложение |
+| --- | --- | --- | --- |
+| AmneziaVPN | `.amnezia.json`, `.amnezia-domains.json` | Проверены | Требует проверки |
+| WireGuard, AmneziaWG | `.wireguard-inverted.txt` | Проверены | Требует проверки |
+| sing-box, Hiddify, Karing, NekoBox, Throne | `.singbox.srs`, `.singbox.json` | Проверены | Требует проверки |
+| Xray, v2rayN, v2rayNG, Streisand | `geoip.dat`, `geosite.dat`, `.v2rayn.json` | Проверены | Требует проверки |
+| Happ | `.happ.json` | Проверены | Требует проверки |
+| Clash / Mihomo, Clash Verge Rev, FlClash | `.mihomo.mrs`, `.mihomo.yaml`, `.clash.yaml` | Проверены | Требует проверки |
+| Shadowrocket, Surge, Loon | `.surge.list` | Проверены | Требует проверки |
+| Quantumult X | `.quantumultx.list` | Проверены | Требует проверки |
+| MikroTik | `.mikrotik.rsc`, `.mikrotik-ipv6.rsc` | Проверены | Требует проверки |
+| Keenetic | `.keenetic.bat`, `.keenetic-cli.txt` | Проверены | Требует проверки |
+| OpenWrt | `.openwrt.nft`, `.dnsmasq.conf` | Проверены | Требует проверки |
+| Windows, Linux, macOS | `.windows.bat`, `.linux.sh`, `.macos.sh` | Проверены | Требует проверки |
+| Текстовые списки | `.ipv4.txt`, `.ipv6.txt`, `.domains.txt` | Проверены | Требует проверки |
+
+Перед расширением в таблице стоит `ru-lite`, `ru-standard` или `ru-full`. Открытые проверки: [AmneziaVPN](https://github.com/kyoresuas/ru-direct/issues/33), [Karing/Hiddify](https://github.com/kyoresuas/ru-direct/issues/34), [Keenetic](https://github.com/kyoresuas/ru-direct/issues/35). Результат импорта можно прислать через [форму проверки клиента](https://github.com/kyoresuas/ru-direct/issues/new?template=client_check.yml): укажите точную версию приложения, ОС и дату.
 
 ## Импорт в AmneziaVPN
 
@@ -145,10 +160,14 @@ npm run check -- 185.73.193.68
 
 - **Полная зона**: подсети, зарегистрированные за Россией по данным [RIPE Stat](https://stat.ripe.net/), с фолбэком на ipdeny.
 - **Сервисы**: собственные автономные системы каждого сервиса, подтверждённые через RIPE, плюс домены, снятые из приложений в [RuStore](https://www.rustore.ru/) и с сайтов. Пакеты и версии приложений записаны в конфиге.
-- **Точность**: префикс целиком берётся только у собственной сети сервиса. Хосты на чужих сетях попадают точными адресами, и только если сеть российская.
-- **Guard**: Cloudflare, AWS, Fastly, Google и статические anycast-подсети вычитаются из всех уровней; запрещённые ASN не пройдут проверку конфигурации.
+- **Точность**: префиксы собственных ASN фильтруются по стране. Адреса доменов вне этих сетей добавляются точными IP или подсетью узла российского CDN.
+- **Guard**: Cloudflare, AWS, Fastly, Google и статические anycast-подсети вычитаются из IP-списков всех уровней. Доменные правила и повторный DNS в клиенте могут дать другой результат.
 - **Уровни**: Lite не больше 500 подсетей IPv4, Standard не больше 2000, сборка падает при превышении.
 - **Форматы**: все файлы собираются из одних данных одним генератором на TypeScript, бинарные `.srs` и `.mrs` компилируются официальными sing-box и mihomo.
+
+Исходные домены и записи `apps` с пакетом, версией и датой разбора APK доступны в [конфигурации сервисов](config/services). Для девяти сервисов, добавленных после разбора APK 1 ноября 2026 года, поле `notes` также содержит SHA-256 разобранного APK. Результаты автоматических проверок — в [CI](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml). Опубликованные размеры, SHA-256 и время сборки — в [manifest.json](https://raw.githubusercontent.com/kyoresuas/ru-direct/release/manifest.json), контрольные суммы файлов — в [SHA256SUMS](https://raw.githubusercontent.com/kyoresuas/ru-direct/release/SHA256SUMS).
+
+Бейдж jsDelivr показывает запросы к CDN, включая автоматические обновления. Это не число уникальных пользователей.
 
 Состав каждого уровня в `services.json` рядом со списками. Полное описание архитектуры для разработчиков и агентов в [AGENTS.md](AGENTS.md).
 

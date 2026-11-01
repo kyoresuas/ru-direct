@@ -2,6 +2,15 @@
 
 Спасибо за интерес. Больше всего пользы приносят новые сервисы, найденные дыры в покрытии и починка форматов под конкретные клиенты.
 
+## С чего начать
+
+- [Проверить импорт Lite в AmneziaVPN на Android или iOS](https://github.com/kyoresuas/ru-direct/issues/33)
+- [Проверить удалённый rule-set в Karing или Hiddify](https://github.com/kyoresuas/ru-direct/issues/34)
+- [Проверить импорт маршрутов в Keenetic](https://github.com/kyoresuas/ru-direct/issues/35)
+- Разберите APK российского сервиса, которого ещё нет в `config/services`, и предложите его рабочие домены через [форму добавления сервиса](https://github.com/kyoresuas/ru-direct/issues/new?template=add_service.yml)
+
+Перед началом оставьте комментарий в задаче и укажите, какой клиент и ОС будете проверять. Для проверки клиента достаточно отчёта; знание TypeScript не требуется.
+
 ## Перед началом
 
 - Поищите похожий issue.

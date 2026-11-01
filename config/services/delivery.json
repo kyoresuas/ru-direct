@@ -76,6 +76,7 @@
     {
       "name": "Додо Пицца",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 52e439cca49a2c1682599eeec27cf47a8f13d072d3562d66cc9f95370677b679",
       "domains": [
         "dodopizza.ru",
         "mapi.dodois.io",
@@ -93,6 +94,7 @@
     {
       "name": "Бургер Кинг",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 4792ca516e0f883ab627df1dfc166a39611e6146af12807301d98a40058c8d02",
       "domains": [
         "burgerkingrus.ru",
         "notifier.burgerkingrus.ru",
@@ -111,6 +113,7 @@
     {
       "name": "Вкусно — и точка",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 601ad5963483b91bbf3b46e65469ecdac13b9ed0a07fe2580ac3013973c25369",
       "domains": [
         "ma-prod.cdn.vkusnoitochka.ru",
         "mobile-api.vkusnoitochka.ru",

@@ -130,6 +130,7 @@
     {
       "name": "Островок",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 2f6046a879ecc7d7b528cf11b4c1cf29b8826c34f8abe908eac9e05f8a1908a6",
       "domains": [
         "app.ostrovok.ru",
         "mota.ostrovok.ru",

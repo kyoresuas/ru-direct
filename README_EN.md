@@ -1,6 +1,6 @@
-# RU Direct
+# rudirect
 
-Ready-made lists of Russian networks and domains for VPN split tunneling. Banks, government services, Ozon, Wildberries, Yandex and VK open directly without turning the VPN off, everything else goes through the tunnel. Three tiers, 27 formats for AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic and OpenWrt. Rebuilt daily, MIT, no ads.
+Keep Russian services on your regular connection while the rest of your traffic uses the VPN. Download a ready-made list or choose your own services from the catalogue.
 
 [![Stars](https://img.shields.io/github/stars/kyoresuas/ru-direct?style=flat&color=0f766e)](https://github.com/kyoresuas/ru-direct/stargazers)
 [![Lists](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml/badge.svg)](https://github.com/kyoresuas/ru-direct/actions/workflows/update.yml)
@@ -8,23 +8,19 @@ Ready-made lists of Russian networks and domains for VPN split tunneling. Banks,
 [![jsDelivr](https://data.jsdelivr.com/v1/package/gh/kyoresuas/ru-direct/badge?style=rounded)](https://www.jsdelivr.com/package/gh/kyoresuas/ru-direct)
 [![License](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
-**English** · [Русский](README.md)
-
-```text
-Phone, computer or router
-├── banks, Gosuslugi, Ozon, Yandex, VK ──► direct, with your ISP address
-└── the rest of the internet ────────────► VPN server
-```
+**[Download a list](https://kyoresuas.github.io/ru-direct/#setup)** · **[Build your own](https://kyoresuas.github.io/ru-direct/#services)**
 
 <p align="center">
-  <a href="https://kyoresuas.github.io/ru-direct/"><img src="site/assets/preview.png" width="560" alt="RU Direct download page: pick a client and a tier"></a>
+  <a href="https://kyoresuas.github.io/ru-direct/#services"><img src="site/assets/preview.png" width="800" alt="rudirect list builder with four selected services and an AmneziaVPN download button"></a>
 </p>
 
-Did the lists save you time? Please star the project so more people can find it. The site and the interface hints are in Russian, the file names and formats are universal.
+90 services, three preset tiers and 27 file formats. The builder exports AmneziaVPN JSON and IPv4/IPv6 text lists. Save your selection as a link to reopen it with fresh data, or share it with someone else. Downloaded custom files still need to be imported manually.
+
+**English** · [Русский](README.md) · [Compatibility checks](#compatibility-checks) · [Contributing](CONTRIBUTING.md)
 
 ## Download
 
-**[Download page](https://kyoresuas.github.io/ru-direct/)**: pick a client and a tier, get a button, a subscription URL and import steps. The same page checks whether a given site goes direct.
+**[Download page](https://kyoresuas.github.io/ru-direct/#setup)**: pick a client and a tier. For a custom list, open **Your list**, select services and an export format. The site UI is in Russian. The address checker compares IPv4 and IPv6 addresses against the generated IP lists; it does not test your VPN connection.
 
 For AmneziaVPN right away:
 
@@ -62,6 +58,28 @@ The first URL is never cached, the second is a CDN for client subscriptions, the
 | Plain lists | `<tier>.ipv4.txt`, `<tier>.ipv6.txt`, `<tier>.domains.txt` |
 
 Tier is `ru-lite`, `ru-standard` or `ru-full`. `geoip.dat` and `geosite.dat` carry all three tiers as tags such as `geoip:ru-lite` and `geosite:ru-standard`.
+
+## Compatibility checks
+
+Checked on 2026-11-02: the site's 26 client choices across all three tiers, generated download targets, IPv4/IPv6 checks and custom export. These checks run in a browser and against generated files. VPN client versions, operating systems, native import and routing on real devices still need verification.
+
+| Client | Files | Site and files | Native import |
+| --- | --- | --- | --- |
+| AmneziaVPN | `.amnezia.json`, `.amnezia-domains.json` | Checked | Needs verification |
+| WireGuard, AmneziaWG | `.wireguard-inverted.txt` | Checked | Needs verification |
+| sing-box, Hiddify, Karing, NekoBox, Throne | `.singbox.srs`, `.singbox.json` | Checked | Needs verification |
+| Xray, v2rayN, v2rayNG, Streisand | `geoip.dat`, `geosite.dat`, `.v2rayn.json` | Checked | Needs verification |
+| Happ | `.happ.json` | Checked | Needs verification |
+| Clash / Mihomo, Clash Verge Rev, FlClash | `.mihomo.mrs`, `.mihomo.yaml`, `.clash.yaml` | Checked | Needs verification |
+| Shadowrocket, Surge, Loon | `.surge.list` | Checked | Needs verification |
+| Quantumult X | `.quantumultx.list` | Checked | Needs verification |
+| MikroTik | `.mikrotik.rsc`, `.mikrotik-ipv6.rsc` | Checked | Needs verification |
+| Keenetic | `.keenetic.bat`, `.keenetic-cli.txt` | Checked | Needs verification |
+| OpenWrt | `.openwrt.nft`, `.dnsmasq.conf` | Checked | Needs verification |
+| Windows, Linux, macOS | `.windows.bat`, `.linux.sh`, `.macos.sh` | Checked | Needs verification |
+| Plain lists | `.ipv4.txt`, `.ipv6.txt`, `.domains.txt` | Checked | Needs verification |
+
+File extensions in this table follow `ru-lite`, `ru-standard` or `ru-full`. Open checks: [AmneziaVPN](https://github.com/kyoresuas/ru-direct/issues/33), [Karing/Hiddify](https://github.com/kyoresuas/ru-direct/issues/34), [Keenetic](https://github.com/kyoresuas/ru-direct/issues/35). Share a native import result through the [client check form](https://github.com/kyoresuas/ru-direct/issues/new?template=client_check.yml), including the exact client version, OS and date.
 
 ## Importing into AmneziaVPN
 
@@ -126,10 +144,14 @@ Yes, the license is MIT. File names and URLs stay stable.
 
 - **Full zone**: prefixes registered to Russia according to [RIPE Stat](https://stat.ripe.net/), with ipdeny as a fallback.
 - **Services**: each service's own autonomous systems verified through RIPE, plus domains extracted from [RuStore](https://www.rustore.ru/) apps and websites. App packages and versions are recorded in the config.
-- **Precision**: a whole prefix is taken only from a service's own network. Hosts on foreign networks become exact addresses, and only when the network is Russian.
-- **Guard**: Cloudflare, AWS, Fastly, Google and static anycast prefixes are subtracted from every tier.
+- **Precision**: prefixes from service-owned ASNs are filtered by country. Domain addresses outside these networks are added as exact IPs or a node prefix from a Russian CDN.
+- **Guard**: Cloudflare, AWS, Fastly, Google and static anycast prefixes are subtracted from IP lists in every tier. Domain rules and client-side DNS can produce different results.
 - **Tiers**: Lite is capped at 500 IPv4 prefixes, Standard at 2000; the build fails otherwise.
 - **Formats**: one TypeScript generator produces every file from the same data; `.srs` and `.mrs` are compiled by the official sing-box and mihomo binaries.
+
+[Service configs](config/services) record domains and audited app package names, versions and dates. For the nine services audited on 2026-11-01, `notes` also contains the SHA-256 of the APK examined. [CI](https://github.com/kyoresuas/ru-direct/actions/workflows/ci.yml) publishes automated check results. [manifest.json](https://raw.githubusercontent.com/kyoresuas/ru-direct/release/manifest.json) records file sizes, SHA-256 and build time; [SHA256SUMS](https://raw.githubusercontent.com/kyoresuas/ru-direct/release/SHA256SUMS) lists routing file checksums.
+
+The jsDelivr badge counts CDN requests, including automatic updates, rather than unique users.
 
 Architecture notes for contributors and agents are in [AGENTS.md](AGENTS.md).
 

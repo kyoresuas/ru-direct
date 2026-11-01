@@ -1,0 +1,57 @@
+name: Проверка клиента
+description: Результат импорта и проверки маршрутизации на настоящем устройстве
+title: "[Совместимость]: "
+labels:
+  - documentation
+body:
+  - type: input
+    id: client
+    attributes:
+      label: Клиент и точная версия
+      placeholder: AmneziaVPN 5.x, Karing или Hiddify
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Операционная система и версия
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Дата проверки
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: Имя файла или выбранные сервисы конструктора
+      placeholder: ru-lite.amnezia.json
+    validations:
+      required: true
+  - type: dropdown
+    id: import
+    attributes:
+      label: Результат импорта
+      options:
+        - Успешно
+        - Ошибка импорта
+        - Импорт не поддерживается
+    validations:
+      required: true
+  - type: textarea
+    id: routing
+    attributes:
+      label: Как проверяли маршрутизацию и что получилось
+      description: Укажите проверенные сервисы и поведение. Свой IP, VPN-конфиг, ключи и адрес VPN-сервера публиковать не нужно
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: В отчёте нет VPN-конфигов, ключей, моего IP и адресов VPN-серверов
+          required: true

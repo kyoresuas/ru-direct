@@ -193,6 +193,7 @@
     {
       "name": "Детский мир",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 b8d8b98853d5b48100c7e7c3841f370b62c792799ebf84c22fbca9b6fd198e57",
       "domains": [
         "api.detmir.ru",
         "bonus.detmir.ru",
@@ -213,6 +214,7 @@
     {
       "name": "Спортмастер",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 3912f9a2e3d571dbc284b2f6a9394683650d155c431e9299120e973a400e5d69",
       "domains": [
         "app.sportmaster.ru",
         "cdn.sportmaster.ru",
@@ -233,6 +235,7 @@
     {
       "name": "Золотое Яблоко",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 31e792baa96a83709682cd4a023171e4021b0aaefb872543549a813238f8cc0f",
       "domains": [
         "api-m.goldapple.ru",
         "api-n.goldapple.ru",
@@ -252,6 +255,7 @@
     {
       "name": "Аптека.ру",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 fdf304f1005437eb1907cd2ca7a0c5f3422bb7edc386350d5dd373f515b2b81c",
       "domains": [
         "api.apteka.ru",
         "apteka.ru",
@@ -269,6 +273,7 @@
     {
       "name": "ЕАПТЕКА",
       "tier": "standard",
+      "notes": "Статический разбор APK из RuStore, SHA-256 a1959c3d49f3779e9ac10ecf968e43a039084156bd258ae59a8ba660bc85ce1d",
       "domains": [
         "api.eapteka.ru",
         "cdn.eapteka.ru",
