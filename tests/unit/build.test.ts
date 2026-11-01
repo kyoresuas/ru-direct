@@ -107,6 +107,33 @@ describe("BuildService", () => {
     expect(full.ipv4).not.toContain("192.168.0.0/16");
     expect(full.ipv4).toContain("185.73.192.0/22");
     expect(result.guard.subtracted4).toBeGreaterThan(0);
+
+    const ozon = result.services.find((service) => service.name === "Ozon")!;
+
+    expect(ozon.ipv4).toEqual(["185.73.192.0/22"]);
+    expect(ozon.ipv6).toEqual(["2a02:6b8::/32"]);
+  });
+
+  it("персональные списки вычитают guard и исключения из IPv4 и IPv6", async () => {
+    const build = new BuildService({
+      dns,
+      ripe,
+      zones,
+      guard: {
+        loadCidrs: async () => ["185.73.192.0/24", "2a02:6b8::/33"],
+      } as unknown as GuardService,
+      cdnAsns: [],
+      exclude: [{ cidr: "185.73.193.0/24", comment: "тест" }],
+      categories,
+    });
+    const result = await build.build();
+    const ozon = result.services.find((service) => service.name === "Ozon")!;
+    const bank = result.services.find((service) => service.name === "Банк")!;
+
+    expect(ozon.ipv4).toEqual(["185.73.194.0/23"]);
+    expect(ozon.ipv6).toEqual(["2a02:6b8:8000::/33"]);
+    expect(bank.ipv4).toEqual([]);
+    expect(bank.ipv6).toEqual([]);
   });
 
   it("адрес в сети CDN попадает подсетью ноды, а не /32", async () => {

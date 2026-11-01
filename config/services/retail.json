@@ -189,6 +189,100 @@
           "auditedAt": "2026-10-15"
         }
       ]
+    },
+    {
+      "name": "Детский мир",
+      "tier": "standard",
+      "domains": [
+        "api.detmir.ru",
+        "bonus.detmir.ru",
+        "detmir.ru",
+        "gift.detmir.ru",
+        "growthbook-api.detmir.ru",
+        "ws.detmir.ru",
+        "www.detmir.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.detmir.dmbonus",
+          "version": "26.3.0",
+          "auditedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "name": "Спортмастер",
+      "tier": "standard",
+      "domains": [
+        "app.sportmaster.ru",
+        "cdn.sportmaster.ru",
+        "m.sportmaster.ru",
+        "mp4x-api.sportmaster.ru",
+        "sportmaster.ru",
+        "static.sportmaster.ru",
+        "www.sportmaster.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.sportmaster.app",
+          "version": "4.103.0-global",
+          "auditedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "name": "Золотое Яблоко",
+      "tier": "standard",
+      "domains": [
+        "api-m.goldapple.ru",
+        "api-n.goldapple.ru",
+        "api.goldapple.ru",
+        "cards.goldapple.ru",
+        "goldapple.ru",
+        "identity.goldapple.ru"
+      ],
+      "apps": [
+        {
+          "package": "goldapple.ru.goldapple.customers",
+          "version": "6.19.1",
+          "auditedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "name": "Аптека.ру",
+      "tier": "standard",
+      "domains": [
+        "api.apteka.ru",
+        "apteka.ru",
+        "archive.apteka.ru",
+        "notifier.katren.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.apteka",
+          "version": "4.1.15RG",
+          "auditedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "name": "ЕАПТЕКА",
+      "tier": "standard",
+      "domains": [
+        "api.eapteka.ru",
+        "cdn.eapteka.ru",
+        "eapteka.ru",
+        "unleash.service.eapteka.ru",
+        "www.eapteka.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.getpharma.eapteka",
+          "version": "26.10.30",
+          "auditedAt": "2026-11-01"
+        }
+      ]
     }
   ]
 }

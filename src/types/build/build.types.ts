@@ -66,6 +66,7 @@ export interface IGuardResult {
 
 export interface IBuildResult {
   tiers: Record<Tier, ITierData>;
+  services: IServiceRoutes[];
   guard: IGuardResult;
 }
 

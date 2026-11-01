@@ -5,7 +5,25 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   {
-    ignores: ["node_modules", "dist", "cache", "site", ".tools"],
+    ignores: ["node_modules", "dist", "cache", ".tools"],
+  },
+  {
+    files: ["site/assets/*.js"],
+    languageOptions: {
+      globals: {
+        document: "readonly",
+        navigator: "readonly",
+        localStorage: "readonly",
+        location: "readonly",
+        URL: "readonly",
+        URLSearchParams: "readonly",
+        Blob: "readonly",
+        fetch: "readonly",
+        AbortSignal: "readonly",
+        setTimeout: "readonly",
+        addEventListener: "readonly",
+      },
+    },
   },
   {
     rules: {

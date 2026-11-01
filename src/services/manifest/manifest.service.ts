@@ -136,7 +136,7 @@ export class ManifestService {
 
     writeJson(resolve(this.dir, MANIFEST_FILE), manifest);
     this.writeChecksums(manifest);
-    this.writeServices(build, categories);
+    this.writeServices(build, categories, generatedAt);
     writeFile(
       resolve(this.dir, "..", RELEASE_NOTES_FILE),
       this.renderReleaseNotes(manifest),
@@ -169,22 +169,33 @@ export class ManifestService {
   private writeServices(
     build: IBuildResult,
     categories: IServiceCategory[],
+    generatedAt: string,
   ): void {
     const summary = categories.map((category) => ({
       id: category.id,
       title: category.title,
       description: category.description,
-      services: category.services.map((service) => ({
-        name: service.name,
-        tier: service.tier,
-        domains: service.domains.length,
-        asns: (service.asns ?? []).map((a) => a.asn),
-        apps: (service.apps ?? []).map((a) => a.package),
-      })),
+      services: category.services.map((service) => {
+        const routes = build.services.find(
+          (route) => route.category === category.id && route.name === service.name,
+        );
+
+        if (!routes) throw new Error(`Нет подсетей сервиса ${service.name}`);
+
+        return {
+          name: service.name,
+          tier: service.tier,
+          domains: service.domains.length,
+          asns: (service.asns ?? []).map((a) => a.asn),
+          apps: (service.apps ?? []).map((a) => a.package),
+          ipv4: routes.ipv4,
+          ipv6: routes.ipv6,
+        };
+      }),
     }));
 
     writeJson(resolve(this.dir, SERVICES_FILE), {
-      generatedAt: build ? new Date().toISOString() : "",
+      generatedAt,
       categories: summary,
     });
   }

@@ -1,6 +1,6 @@
 {
   "title": "Доставка",
-  "description": "Самокат, Купер и СДЭК",
+  "description": "Самокат, Купер, СДЭК, Додо Пицца, Бургер Кинг и Вкусно — и точка",
   "services": [
     {
       "name": "Самокат",
@@ -70,6 +70,57 @@
           "package": "com.logistic.sdek",
           "version": "5.16.0",
           "auditedAt": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "name": "Додо Пицца",
+      "tier": "standard",
+      "domains": [
+        "dodopizza.ru",
+        "mapi.dodois.io",
+        "mapi.dodois.ru",
+        "pay.dodois.io"
+      ],
+      "apps": [
+        {
+          "package": "ru.dodopizza.app",
+          "version": "26.21.1",
+          "auditedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "name": "Бургер Кинг",
+      "tier": "standard",
+      "domains": [
+        "burgerkingrus.ru",
+        "notifier.burgerkingrus.ru",
+        "orderapp-app-static.burgerkingrus.ru",
+        "orderapp-static.burgerkingrus.ru",
+        "orderapp.burgerkingrus.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.burgerking",
+          "version": "11.11.0.r",
+          "auditedAt": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "name": "Вкусно — и точка",
+      "tier": "standard",
+      "domains": [
+        "ma-prod.cdn.vkusnoitochka.ru",
+        "mobile-api.vkusnoitochka.ru",
+        "vkusnoitochka.ru"
+      ],
+      "apps": [
+        {
+          "package": "com.apegroup.mcdonaldsrussia",
+          "version": "15.0.0",
+          "auditedAt": "2026-11-01"
         }
       ]
     }

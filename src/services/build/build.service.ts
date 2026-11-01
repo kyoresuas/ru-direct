@@ -322,6 +322,17 @@ export class BuildService {
       );
     }
 
-    return { tiers, guard: { subtracted4, subtracted6 } };
+    const services = routes.map((route) => {
+      const { ipv4, ipv6 } = this.finalizeTier(
+        Tier.FULL,
+        route.ipv4,
+        route.ipv6,
+        removals,
+      );
+
+      return { ...route, ipv4, ipv6 };
+    });
+
+    return { tiers, services, guard: { subtracted4, subtracted6 } };
   }
 }

@@ -1,6 +1,6 @@
 {
   "title": "Путешествия и транспорт",
-  "description": "Aviasales, Туту, РЖД и Аэрофлот",
+  "description": "Aviasales, Туту, РЖД, Аэрофлот и Островок",
   "services": [
     {
       "name": "Aviasales",
@@ -125,6 +125,23 @@
         "aeroflot.ru",
         "api.aeroflot.ru",
         "www.aeroflot.ru"
+      ]
+    },
+    {
+      "name": "Островок",
+      "tier": "standard",
+      "domains": [
+        "app.ostrovok.ru",
+        "mota.ostrovok.ru",
+        "ostrovok.ru",
+        "payota.p.ostrovok.ru"
+      ],
+      "apps": [
+        {
+          "package": "ru.ostrovok.android",
+          "version": "10.1.1",
+          "auditedAt": "2026-11-01"
+        }
       ]
     }
   ]

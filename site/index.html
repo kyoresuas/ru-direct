@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RU Direct: списки российских IP и доменов для раздельного туннелирования</title>
+    <title>RU Direct — списки IP для AmneziaVPN и раздельного туннелирования</title>
     <meta
       name="description"
-      content="Готовые списки российских подсетей и доменов для split tunneling. Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK работают напрямую, остальное через VPN. AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic, OpenWrt. Обновляется каждый день."
+      content="Списки российских IP для AmneziaVPN, WireGuard, sing-box и роутеров. Три уровня, проверка IPv4/IPv6 и свой список сервисов. Российские сайты напрямую, остальное через VPN."
     />
     <link
       rel="canonical"
@@ -18,10 +18,6 @@
       type="text/markdown"
       href="https://raw.githubusercontent.com/kyoresuas/ru-direct/main/README.md"
     />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M9 16h14M17 10l6 6-6 6' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
-    />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -29,7 +25,7 @@
     />
     <meta
       property="og:description"
-      content="Российские сайты напрямую, остальное через VPN. Три уровня, 27 форматов, обновление каждый день, без рекламы."
+      content="Выберите VPN-клиент и скачайте готовый список. Три уровня, проверка IP и персональный список сервисов. Бесплатно, без рекламы."
     />
     <meta
       property="og:url"
@@ -55,7 +51,7 @@
     />
     <meta
       name="twitter:description"
-      content="Российские сайты напрямую, остальное через VPN. AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic, OpenWrt."
+      content="Российские сайты напрямую, остальное через VPN. Готовые списки, проверка IP и конструктор для AmneziaVPN."
     />
     <meta
       name="twitter:image"
@@ -69,7 +65,7 @@
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large"
     />
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/style.css?v=11" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -84,7 +80,7 @@
               "ru-full",
               "ru-direct"
             ],
-            "description": "Ежедневно обновляемые списки российских IPv4 и IPv6 подсетей и доменов для split tunneling. Три уровня: ru-lite (банки, платежи, госуслуги, соцсети, до 500 подсетей), ru-standard (плюс маркетплейсы, Яндекс, Авито, 2ГИС, операторы, стриминги, до 2000) и ru-full (вся российская зона по данным RIPE). Форматы: AmneziaVPN, WireGuard AllowedIPs, sing-box rule-set, Xray geoip.dat и geosite.dat, Clash и Mihomo, Surge и Shadowrocket, Quantumult X, MikroTik, Keenetic, OpenWrt, скрипты route. Источники: RIPE Stat, DNS, аудит приложений из RuStore. Чужие CDN и anycast вычитаются.",
+            "description": "Списки российских IPv4 и IPv6 подсетей и доменов для раздельного туннелирования. Три уровня Lite, Standard и Full. Готовые файлы для AmneziaVPN, WireGuard, sing-box, Xray, Clash, MikroTik, Keenetic и OpenWrt. Источники — RIPE, DNS и аудит приложений. Защитные исключения применяются к IP-спискам.",
             "url": "https://kyoresuas.github.io/ru-direct/",
             "sameAs": "https://github.com/kyoresuas/ru-direct",
             "identifier": "https://github.com/kyoresuas/ru-direct",
@@ -115,7 +111,10 @@
               "geoip",
               "ru-direct"
             ],
-            "spatialCoverage": { "@type": "Place", "name": "Russia" },
+            "spatialCoverage": {
+              "@type": "Place",
+              "name": "Russia"
+            },
             "dateModified": "{{GENERATED_AT}}",
             "distribution": [
               {
@@ -143,7 +142,10 @@
                 "contentUrl": "https://github.com/kyoresuas/ru-direct/releases/latest/download/manifest.json"
               }
             ],
-            "isBasedOn": ["https://stat.ripe.net/", "https://www.rustore.ru/"]
+            "isBasedOn": [
+              "https://stat.ripe.net/",
+              "https://www.rustore.ru/"
+            ]
           },
           {
             "@type": "SoftwareSourceCode",
@@ -162,182 +164,89 @@
             "url": "https://kyoresuas.github.io/ru-direct/",
             "inLanguage": "ru",
             "description": "Российские сайты напрямую, остальное через VPN. Списки подсетей и доменов для раздельного туннелирования в 27 форматах."
-          },
-          {
-            "@type": "FAQPage",
-            "@id": "https://kyoresuas.github.io/ru-direct/#faq",
-            "inLanguage": "ru",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Какой уровень выбрать?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Lite подходит для банков, платежей, госуслуг и соцсетей, до 500 подсетей, работает в любом клиенте. Standard добавляет маркетплейсы, Яндекс, доставку и стриминги, до 2000 подсетей. Full содержит всю российскую зону и нужен только роутерам и десктопам."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Почему приложение всё равно просит выключить VPN?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Список убирает серверную проверку по IP, но приложения Ozon, Wildberries и банков на Android ещё смотрят на tun-интерфейс на самом устройстве. Помогает VPN на роутере, рабочий профиль Android или раздельное туннелирование по приложениям в AmneziaVPN."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Чем RU Direct отличается от allow-domains и russia-v2ray-rules-dat?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Эти проекты в основном ведут списки заблокированных ресурсов: они идут в VPN, остальное напрямую. RU Direct решает обратную задачу: VPN включён для всего трафика, а российские сервисы идут напрямую. Новые блокировки не требуют обновления списка."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Как часто обновляются списки?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Каждый день около 06:00 по Москве. Имена файлов одинаковые во всех источниках и не меняются, поэтому ссылку можно подставить в правила sing-box или Clash."
-                }
-              }
-            ]
           }
         ]
       }
     </script>
   </head>
   <body>
-    <main class="page">
+    <a class="skip-link" href="#setup">К настройке</a>
+    <div class="page">
       <header class="top">
-        <div>
-          <h1>RU Direct</h1>
-          <p>Российские сайты напрямую, остальное через VPN</p>
-        </div>
-        <a class="repo" href="https://github.com/kyoresuas/ru-direct" aria-label="Репозиторий на GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z" />
-          </svg>
-          GitHub
-        </a>
+        <h1 class="brand"><a href="#" aria-label="rudirect — главная">rudirect</a></h1>
+        <nav aria-label="Навигация">
+          <a href="#check">Проверить адрес</a>
+          <a class="repo" href="https://github.com/kyoresuas/ru-direct">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
       </header>
+      <main>
+        <section class="setup" id="setup" aria-label="Настройка списка">
+          <div class="mode-switch" role="tablist" aria-label="Способ создания списка">
+            <button class="btn" id="preset-tab" type="button" role="tab" aria-selected="true" aria-controls="preset-panel">Готовый список</button>
+            <button class="btn" id="custom-tab" type="button" role="tab" aria-selected="false" aria-controls="services" tabindex="-1">Свой список</button>
+          </div>
+          <div id="preset-panel" role="tabpanel" aria-labelledby="preset-tab">
+            <div class="panel client-panel">
+              <h2 id="client-title">Клиент</h2>
+              <label class="sr-only" for="client-search">Найти VPN-клиент</label>
+              <input class="search" id="client-search" type="search" placeholder="Найти: Hiddify, Happ, WireGuard…" autocomplete="off" aria-controls="clients">
+              <div class="options" id="clients" role="radiogroup" aria-labelledby="client-title"></div>
+              <button class="text-button all-clients" type="button" id="all-clients" aria-expanded="false" aria-controls="clients">Все клиенты</button>
+              <p class="hint" id="client-empty" hidden>Такого клиента нет. Попробуйте название его движка или «Просто списки».</p>
+              <noscript><p class="hint">Поддерживаются AmneziaVPN, WireGuard, sing-box, Hiddify, Xray, Clash, MikroTik, Keenetic и OpenWrt. Для выбора клиента нужен JavaScript. <a href="https://github.com/kyoresuas/ru-direct/releases/latest">Скачать файлы релиза</a></p></noscript>
+            </div>
+            <div class="panel download-panel">
+              <h2 id="tier-title">Уровень</h2>
+              <div class="segmented" id="tiers" role="radiogroup" aria-labelledby="tier-title"></div>
+              <p class="hint tier-hint" id="tier-hint"></p>
+              <div class="result" id="result" aria-live="polite"></div>
+              <div class="download-meta"><p class="build-status" id="build-status" role="status">Проверяем дату списков…</p><div id="share-link"></div></div>
+            </div>
+          </div>
+          <div id="services" role="tabpanel" aria-labelledby="custom-tab" hidden>
+            <div class="catalogue" id="services-details">
+              <span class="sr-only" id="services-count"></span>
+              <label class="sr-only" for="service-search">Найти сервис</label>
+              <input class="search" id="service-search" type="search" placeholder="Найти банк, магазин или сервис…" autocomplete="off" aria-controls="service-list">
+              <p class="hint" id="service-status" role="status">Выберите сервисы для своего списка.</p>
+              <div id="service-list"></div>
+              <div class="builder-actions" id="builder-actions" hidden>
+                <div class="selection-meta">
+                  <p class="hint" id="selection-status" role="status">Выберите сервисы</p>
+                  <button class="text-button" id="selection-clear" type="button" hidden>Сбросить</button>
+                </div>
+                <label class="sr-only" for="custom-format">Формат персонального списка</label>
+                <select id="custom-format"><option value="amnezia">AmneziaVPN</option><option value="ipv4">IPv4 · TXT</option><option value="ipv6">IPv6 · TXT</option></select>
+                <button class="btn primary" id="custom-download" type="button" disabled>Скачать список</button>
+              </div>
+            </div>
+          </div>
 
-      <section aria-labelledby="client-title">
-        <h2 id="client-title">Клиент</h2>
-        <div class="options" id="clients" role="radiogroup" aria-labelledby="client-title"></div>
-        <noscript>
-          <p class="hint">
-            Для выбора клиента нужен JavaScript. Без него доступны
-            <a href="https://github.com/kyoresuas/ru-direct/releases/latest">все файлы последнего релиза</a>,
-            для AmneziaVPN
-            <a href="https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-lite.amnezia.json">ru-lite.amnezia.json</a>,
-            <a href="https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-standard.amnezia.json">ru-standard.amnezia.json</a>
-            и
-            <a href="https://github.com/kyoresuas/ru-direct/releases/latest/download/ru-full.amnezia.json">ru-full.amnezia.json</a>.
-          </p>
-        </noscript>
-      </section>
+        </section>
 
-      <section aria-labelledby="tier-title">
-        <h2 id="tier-title">Уровень</h2>
-        <div class="segmented" id="tiers" role="radiogroup" aria-labelledby="tier-title"></div>
-        <p class="hint" id="tier-hint"></p>
-      </section>
+        <section class="panel tool-panel" id="check" aria-labelledby="check-title">
+          <div class="section-heading"><div><h2 id="check-title">Проверить адрес</h2></div></div>
+          <form class="check" id="check-form">
+            <label class="sr-only" for="check-input">Домен, URL или IP-адрес</label>
+            <input id="check-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="ozon.ru, ссылка или IP-адрес" required maxlength="2048">
+            <button class="btn primary" type="submit">Проверить</button>
+          </form>
+          <p class="hint">IP сравнивается в браузере. Домен отправляется DNS-провайдеру Cloudflare или Google.</p>
+          <div id="check-result" aria-live="polite" aria-atomic="true"></div>
+        </section>
 
-      <section class="result" id="result" aria-live="polite"></section>
-
-      <section id="check" aria-labelledby="check-title">
-        <h2 id="check-title">Проверить адрес</h2>
-        <form class="check" id="check-form">
-          <input
-            id="check-input"
-            type="text"
-            inputmode="url"
-            autocomplete="off"
-            spellcheck="false"
-            placeholder="ozon.ru или 185.73.193.68"
-            aria-label="Домен или адрес IPv4"
-            required
-          />
-          <button class="btn primary" type="submit">Проверить</button>
-        </form>
-        <p class="hint">
-          Узнайте, пойдёт ли сайт напрямую. Домен определяется через
-          DNS-over-HTTPS Cloudflare и может отличаться от ответа вашего
-          провайдера, подсети сравниваются в браузере по последней сборке.
-          Проверяются IPv4-списки.
-        </p>
-        <div id="check-result" aria-live="polite"></div>
-      </section>
-
-      <section aria-labelledby="about-title">
-        <h2 id="about-title">Как это работает</h2>
-        <p>
-          Адреса из списка идут напрямую, мимо VPN, всё остальное остаётся в
-          туннеле. Банки, Госуслуги, Ozon, Wildberries, Яндекс и VK видят ваш
-          домашний адрес и не блокируют вход, а трафик к российским сервисам не
-          расходует VPN. Списки собираются каждый день из данных RIPE, DNS и
-          аудита приложений RuStore, чужие CDN вычитаются.
-        </p>
-      </section>
-
-      <section aria-labelledby="faq-title">
-        <h2 id="faq-title">Вопросы</h2>
-        <details>
-          <summary>Какой уровень выбрать?</summary>
-          <p>
-            Lite подходит для банков, платежей, госуслуг и соцсетей, до 500
-            подсетей, работает в любом клиенте. Standard добавляет маркетплейсы,
-            Яндекс, доставку и стриминги, до 2000 подсетей. Full содержит всю
-            российскую зону и нужен только роутерам и десктопам.
-          </p>
-        </details>
-        <details>
-          <summary>Почему приложение всё равно просит выключить VPN?</summary>
-          <p>
-            Список убирает серверную проверку по IP, но приложения Ozon,
-            Wildberries и банков на Android ещё смотрят на tun-интерфейс на
-            самом устройстве. Помогает VPN на роутере, рабочий профиль Android
-            или раздельное туннелирование по приложениям в AmneziaVPN.
-          </p>
-        </details>
-        <details>
-          <summary>
-            Чем RU Direct отличается от allow-domains и russia-v2ray-rules-dat?
-          </summary>
-          <p>
-            Эти проекты в основном ведут списки заблокированных ресурсов: они
-            идут в VPN, остальное напрямую. RU Direct решает обратную задачу:
-            VPN включён для всего трафика, а российские сервисы идут напрямую.
-            Новые блокировки не требуют обновления списка.
-          </p>
-        </details>
-        <details>
-          <summary>Как часто обновляются списки?</summary>
-          <p>
-            Каждый день около 06:00 по Москве. Имена файлов одинаковые во всех
-            источниках и не меняются, поэтому ссылку можно подставить в правила
-            sing-box или Clash.
-          </p>
-        </details>
-      </section>
-
+        <section class="faq" aria-label="Помощь">
+          <details><summary>С какого уровня начать?</summary><p>Lite — банки, платежи, госуслуги и соцсети. Standard добавляет магазины, Яндекс, доставку и стриминги. Full — вся российская зона, для роутеров и компьютеров с поддержкой тысяч маршрутов.</p></details>
+          <details><summary>Приложение всё равно видит VPN</summary><p>Некоторые приложения обнаруживают VPN на самом устройстве. Список маршрутов этого не меняет. На Android попробуйте исключение приложения в настройках VPN-клиента; ещё один вариант — VPN на роутере.</p></details>
+          <details><summary>Нужно ли обновлять вручную?</summary><p>Сборка запускается каждый день. Ссылку на список можно использовать в клиентах с подписками. После импорта файла в AmneziaVPN обновления нужно скачивать и импортировать заново.</p></details>
+          <details><summary>Как устроены списки?</summary><p>Источники — RIPE, DNS и аудит приложений. Из IP-списков вычитаются чужие CDN, anycast и явные исключения. Доменные форматы работают по правилам доменов и могут давать другой результат. <a href="https://github.com/kyoresuas/ru-direct#как-собирается">Подробнее о сборке</a></p></details>
+        </section>
+      </main>
       <footer class="foot">
-        <p>
-          Открытый код под MIT, без рекламы. Если списки помогли, поставьте
-          звезду на GitHub: так проект проще найти другим.
-        </p>
-        <div class="actions">
-          <a class="btn" href="https://github.com/kyoresuas/ru-direct">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.02l-5.88 3.09 1.12-6.55L2.48 8.92l6.58-.96L12 2Z" />
-            </svg>
-            Поставить звезду
-          </a>
-          <a class="btn" href="https://github.com/kyoresuas/ru-direct/issues/new/choose">Сообщить о проблеме</a>
-        </div>
+        <div><a class="brand" href="https://github.com/kyoresuas/ru-direct">rudirect</a><p>Открытый код · MIT · Без рекламы</p></div>
+        <div class="footer-actions"><a href="https://github.com/kyoresuas/ru-direct/issues/new/choose">Сообщить о проблеме</a><a href="https://github.com/kyoresuas/ru-direct">Поставить звезду</a></div>
       </footer>
-    </main>
-
-    <script src="assets/app.js" defer></script>
+    </div>
+    <script src="assets/app.js?v=11" defer></script>
   </body>
 </html>

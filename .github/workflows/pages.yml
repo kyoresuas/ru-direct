@@ -41,7 +41,8 @@ jobs:
           cp llms.txt public/llms.txt
           GENERATED_AT=$(curl -fsS -m 20 "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/release/manifest.json" | jq -r '.generatedAt' || true)
           if [ -z "${GENERATED_AT:-}" ] || [ "$GENERATED_AT" = "null" ]; then
-            GENERATED_AT=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
+            sed -i '/"dateModified": "{{GENERATED_AT}}",/d' public/index.html
+            GENERATED_AT=""
           fi
           find public -type f \( -name '*.html' -o -name '*.xml' -o -name '*.txt' \) \
             -exec sed -i "s/{{GENERATED_AT}}/${GENERATED_AT}/g" {} +
