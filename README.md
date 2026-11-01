@@ -11,7 +11,7 @@
 **[Скачать готовый список](https://kyoresuas.github.io/ru-direct/#setup)** · **[Собрать свой список](https://kyoresuas.github.io/ru-direct/#services)**
 
 <p align="center">
-  <a href="https://kyoresuas.github.io/ru-direct/#services"><img src="site/assets/preview.png" width="800" alt="Конструктор rudirect: четыре выбранных сервиса и кнопка скачивания для AmneziaVPN"></a>
+  <a href="https://kyoresuas.github.io/ru-direct/#services"><img src="site/assets/preview.png?v=f1cd9c4" width="800" alt="Конструктор rudirect: четыре выбранных сервиса и кнопка скачивания для AmneziaVPN"></a>
 </p>
 
 90 сервисов, три готовых уровня и 27 форматов. Конструктор выгружает JSON для AmneziaVPN и текстовые списки IPv4/IPv6. Сохраните набор ссылкой, чтобы позже открыть его со свежими данными или отправить знакомому. Скачанный персональный файл нужно импортировать в клиент вручную.

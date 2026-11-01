@@ -11,7 +11,7 @@ Keep Russian services on your regular connection while the rest of your traffic 
 **[Download a list](https://kyoresuas.github.io/ru-direct/#setup)** · **[Build your own](https://kyoresuas.github.io/ru-direct/#services)**
 
 <p align="center">
-  <a href="https://kyoresuas.github.io/ru-direct/#services"><img src="site/assets/preview.png" width="800" alt="rudirect list builder with four selected services and an AmneziaVPN download button"></a>
+  <a href="https://kyoresuas.github.io/ru-direct/#services"><img src="site/assets/preview.png?v=f1cd9c4" width="800" alt="rudirect list builder with four selected services and an AmneziaVPN download button"></a>
 </p>
 
 90 services, three preset tiers and 27 file formats. The builder exports AmneziaVPN JSON and IPv4/IPv6 text lists. Save your selection as a link to reopen it with fresh data, or share it with someone else. Downloaded custom files still need to be imported manually.
