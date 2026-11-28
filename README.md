@@ -61,25 +61,27 @@ https://raw.githubusercontent.com/kyoresuas/ru-direct/release/<файл>
 
 ## Проверка совместимости
 
-Проверено 2 ноября 2026 года: 26 вариантов клиента на сайте во всех трёх уровнях, соответствие ссылок собранным файлам, проверка IPv4/IPv6 и персональный экспорт. Проверки выполнены в браузере и на сгенерированных файлах. Версии VPN-клиентов, ОС, нативный импорт и маршрутизация на настоящих устройствах ещё требуют проверки.
+2 ноября 2026 года проверили на сайте 26 вариантов клиента для всех трёх уровней, ссылки на собранные файлы, проверку IPv4/IPv6 и персональный экспорт.
 
-| Клиент | Файлы | Сайт и файлы | Импорт в приложение |
-| --- | --- | --- | --- |
-| AmneziaVPN | `.amnezia.json`, `.amnezia-domains.json` | Проверены | Требует проверки |
-| WireGuard, AmneziaWG | `.wireguard-inverted.txt` | Проверены | Требует проверки |
-| sing-box, Hiddify, Karing, NekoBox, Throne | `.singbox.srs`, `.singbox.json` | Проверены | Требует проверки |
-| Xray, v2rayN, v2rayNG, Streisand | `geoip.dat`, `geosite.dat`, `.v2rayn.json` | Проверены | Требует проверки |
-| Happ | `.happ.json` | Проверены | Требует проверки |
-| Clash / Mihomo, Clash Verge Rev, FlClash | `.mihomo.mrs`, `.mihomo.yaml`, `.clash.yaml` | Проверены | Требует проверки |
-| Shadowrocket, Surge, Loon | `.surge.list` | Проверены | Требует проверки |
-| Quantumult X | `.quantumultx.list` | Проверены | Требует проверки |
-| MikroTik | `.mikrotik.rsc`, `.mikrotik-ipv6.rsc` | Проверены | Требует проверки |
-| Keenetic | `.keenetic.bat`, `.keenetic-cli.txt` | Проверены | Требует проверки |
-| OpenWrt | `.openwrt.nft`, `.dnsmasq.conf` | Проверены | Требует проверки |
-| Windows, Linux, macOS | `.windows.bat`, `.linux.sh`, `.macos.sh` | Проверены | Требует проверки |
-| Текстовые списки | `.ipv4.txt`, `.ipv6.txt`, `.domains.txt` | Проверены | Требует проверки |
+| Клиент | Файлы | Сайт и файлы |
+| --- | --- | --- |
+| AmneziaVPN | `.amnezia.json`, `.amnezia-domains.json` | Проверены |
+| WireGuard, AmneziaWG | `.wireguard-inverted.txt` | Проверены |
+| sing-box, Hiddify, Karing, NekoBox, Throne | `.singbox.srs`, `.singbox.json` | Проверены |
+| Xray, v2rayN, v2rayNG, Streisand | `geoip.dat`, `geosite.dat`, `.v2rayn.json` | Проверены |
+| Happ | `.happ.json` | Проверены |
+| Clash / Mihomo, Clash Verge Rev, FlClash | `.mihomo.mrs`, `.mihomo.yaml`, `.clash.yaml` | Проверены |
+| Shadowrocket, Surge, Loon | `.surge.list` | Проверены |
+| Quantumult X | `.quantumultx.list` | Проверены |
+| MikroTik | `.mikrotik.rsc`, `.mikrotik-ipv6.rsc` | Проверены |
+| Keenetic | `.keenetic.bat`, `.keenetic-cli.txt` | Проверены |
+| OpenWrt | `.openwrt.nft`, `.dnsmasq.conf` | Проверены |
+| Windows, Linux, macOS | `.windows.bat`, `.linux.sh`, `.macos.sh` | Проверены |
+| Текстовые списки | `.ipv4.txt`, `.ipv6.txt`, `.domains.txt` | Проверены |
 
-Перед расширением в таблице стоит `ru-lite`, `ru-standard` или `ru-full`. Открытые проверки: [AmneziaVPN](https://github.com/kyoresuas/ru-direct/issues/33), [Karing/Hiddify](https://github.com/kyoresuas/ru-direct/issues/34), [Keenetic](https://github.com/kyoresuas/ru-direct/issues/35). Результат импорта можно прислать через [форму проверки клиента](https://github.com/kyoresuas/ru-direct/issues/new?template=client_check.yml): укажите точную версию приложения, ОС и дату.
+Перед расширением в таблице стоит `ru-lite`, `ru-standard` или `ru-full`. Результаты проверки файлов от 28 ноября опубликованы в задачах [AmneziaVPN](https://github.com/kyoresuas/ru-direct/issues/33), [Karing/Hiddify](https://github.com/kyoresuas/ru-direct/issues/34) и [Keenetic](https://github.com/kyoresuas/ru-direct/issues/35).
+
+Результаты импорта и маршрутизации на устройствах собираем через [форму проверки клиента](https://github.com/kyoresuas/ru-direct/issues/new?template=client_check.yml). В отчёте укажите версию приложения, ОС и дату.
 
 ## Импорт в AmneziaVPN
 

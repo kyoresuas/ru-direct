@@ -61,25 +61,27 @@ Tier is `ru-lite`, `ru-standard` or `ru-full`. `geoip.dat` and `geosite.dat` car
 
 ## Compatibility checks
 
-Checked on 2026-11-02: the site's 26 client choices across all three tiers, generated download targets, IPv4/IPv6 checks and custom export. These checks run in a browser and against generated files. VPN client versions, operating systems, native import and routing on real devices still need verification.
+On November 2, 2026, we checked the site's 26 client choices across all three tiers, download links to generated files, IPv4/IPv6 lookups and custom export.
 
-| Client | Files | Site and files | Native import |
-| --- | --- | --- | --- |
-| AmneziaVPN | `.amnezia.json`, `.amnezia-domains.json` | Checked | Needs verification |
-| WireGuard, AmneziaWG | `.wireguard-inverted.txt` | Checked | Needs verification |
-| sing-box, Hiddify, Karing, NekoBox, Throne | `.singbox.srs`, `.singbox.json` | Checked | Needs verification |
-| Xray, v2rayN, v2rayNG, Streisand | `geoip.dat`, `geosite.dat`, `.v2rayn.json` | Checked | Needs verification |
-| Happ | `.happ.json` | Checked | Needs verification |
-| Clash / Mihomo, Clash Verge Rev, FlClash | `.mihomo.mrs`, `.mihomo.yaml`, `.clash.yaml` | Checked | Needs verification |
-| Shadowrocket, Surge, Loon | `.surge.list` | Checked | Needs verification |
-| Quantumult X | `.quantumultx.list` | Checked | Needs verification |
-| MikroTik | `.mikrotik.rsc`, `.mikrotik-ipv6.rsc` | Checked | Needs verification |
-| Keenetic | `.keenetic.bat`, `.keenetic-cli.txt` | Checked | Needs verification |
-| OpenWrt | `.openwrt.nft`, `.dnsmasq.conf` | Checked | Needs verification |
-| Windows, Linux, macOS | `.windows.bat`, `.linux.sh`, `.macos.sh` | Checked | Needs verification |
-| Plain lists | `.ipv4.txt`, `.ipv6.txt`, `.domains.txt` | Checked | Needs verification |
+| Client | Files | Site and files |
+| --- | --- | --- |
+| AmneziaVPN | `.amnezia.json`, `.amnezia-domains.json` | Checked |
+| WireGuard, AmneziaWG | `.wireguard-inverted.txt` | Checked |
+| sing-box, Hiddify, Karing, NekoBox, Throne | `.singbox.srs`, `.singbox.json` | Checked |
+| Xray, v2rayN, v2rayNG, Streisand | `geoip.dat`, `geosite.dat`, `.v2rayn.json` | Checked |
+| Happ | `.happ.json` | Checked |
+| Clash / Mihomo, Clash Verge Rev, FlClash | `.mihomo.mrs`, `.mihomo.yaml`, `.clash.yaml` | Checked |
+| Shadowrocket, Surge, Loon | `.surge.list` | Checked |
+| Quantumult X | `.quantumultx.list` | Checked |
+| MikroTik | `.mikrotik.rsc`, `.mikrotik-ipv6.rsc` | Checked |
+| Keenetic | `.keenetic.bat`, `.keenetic-cli.txt` | Checked |
+| OpenWrt | `.openwrt.nft`, `.dnsmasq.conf` | Checked |
+| Windows, Linux, macOS | `.windows.bat`, `.linux.sh`, `.macos.sh` | Checked |
+| Plain lists | `.ipv4.txt`, `.ipv6.txt`, `.domains.txt` | Checked |
 
-File extensions in this table follow `ru-lite`, `ru-standard` or `ru-full`. Open checks: [AmneziaVPN](https://github.com/kyoresuas/ru-direct/issues/33), [Karing/Hiddify](https://github.com/kyoresuas/ru-direct/issues/34), [Keenetic](https://github.com/kyoresuas/ru-direct/issues/35). Share a native import result through the [client check form](https://github.com/kyoresuas/ru-direct/issues/new?template=client_check.yml), including the exact client version, OS and date.
+File extensions in this table follow `ru-lite`, `ru-standard` or `ru-full`. The November 28 file check results are in the [AmneziaVPN](https://github.com/kyoresuas/ru-direct/issues/33), [Karing/Hiddify](https://github.com/kyoresuas/ru-direct/issues/34) and [Keenetic](https://github.com/kyoresuas/ru-direct/issues/35) issues.
+
+Share import and routing results from your device through the [client check form](https://github.com/kyoresuas/ru-direct/issues/new?template=client_check.yml). Include the client version, OS and date.
 
 ## Importing into AmneziaVPN
 
