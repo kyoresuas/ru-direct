@@ -244,11 +244,6 @@
           "asn": 15632,
           "name": "Альфа-Банк",
           "holder": "Alfa-Bank"
-        },
-        {
-          "asn": 59840,
-          "name": "Альфа-Банк / Балтийский",
-          "holder": "Alfa-Bank"
         }
       ],
       "domains": [
